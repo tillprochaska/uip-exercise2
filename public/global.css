@@ -1,7 +1,7 @@
 :root {
     --line-height: 1.5;
     --color-text: #333;
-    --font-family: system-ui;
+    --font-family: 'Fira Sans', system-ui;
 
     --spacing-unit: calc(var(--line-height) * 1rem);
     --spacing-unit-xs: calc(.25 * var(--spacing-unit));
