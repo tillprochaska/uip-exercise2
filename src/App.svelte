@@ -56,36 +56,38 @@
             help="Please rate this paper. Please base your rating on the paper as it was submitted."
             fieldset={true}
         >
-            <Choice
-                id="rating"
-                value="definitely-reject"
-                label="Definitely reject"
-                caption="I would protest strongly if it's accepted."
-            />
-            <Choice
-                id="rating"
-                value="probably-reject"
-                label="Probably reject"
-                caption="I would argue against this paper."
-            />
-            <Choice
-                id="rating"
-                value="possibly-accept"
-                label="Possibly accept"
-                caption="But only if others champion it."
-            />
-            <Choice
-                id="rating"
-                value="probably-accept"
-                label="Probably accept"
-                caption="I would argue for this paper."
-            />
-            <Choice
-                id="rating"
-                value="definitely-accept"
-                label="Definitely accept"
-                caption="I would protest strongly if it's accepted."
-            />
+            <Stack space="small">
+                <Choice
+                    id="rating"
+                    value="definitely-reject"
+                    label="Definitely reject"
+                    caption="I would protest strongly if it's accepted."
+                />
+                <Choice
+                    id="rating"
+                    value="probably-reject"
+                    label="Probably reject"
+                    caption="I would argue against this paper."
+                />
+                <Choice
+                    id="rating"
+                    value="possibly-accept"
+                    label="Possibly accept"
+                    caption="But only if others champion it."
+                />
+                <Choice
+                    id="rating"
+                    value="probably-accept"
+                    label="Probably accept"
+                    caption="I would argue for this paper."
+                />
+                <Choice
+                    id="rating"
+                    value="definitely-accept"
+                    label="Definitely accept"
+                    caption="I would protest strongly if it's accepted."
+                />
+            </Stack>
         </Field>
 
         <Field
@@ -93,9 +95,11 @@
             help="Please rate your expertise in the subject area of the paper:"
             fieldset={true}
         >
-            <Choice value="beginner" label="Beginner" id="expertise" />
-            <Choice value="knowledgeable" label="Knowledgeable" id="expertise" />
-            <Choice value="expert" label="Expert" id="expertise" />
+            <Stack space="small">
+                <Choice value="beginner" label="Beginner" id="expertise" />
+                <Choice value="knowledgeable" label="Knowledgeable" id="expertise" />
+                <Choice value="expert" label="Expert" id="expertise" />
+            </Stack>
         </Field>
 
         <Field
