@@ -2,7 +2,7 @@
     export let id;
     export let value;
     export let label;
-    export let caption;
+    export let caption = '';
 </script>
 
 <style>
