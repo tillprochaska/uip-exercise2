@@ -11,6 +11,10 @@
     :global(.stack-small > * + *) {
         margin-top: var(--spacing-unit-s);
     }
+
+    :global(.stack-large > * + *) {
+        margin-top: var(--spacing-unit-l);
+    }
 </style>
 
 <div class="stack {modifier}">

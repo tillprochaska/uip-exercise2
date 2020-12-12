@@ -7,7 +7,7 @@
 </script>
 
 <Wrapper>
-    <Stack>
+    <Stack space="large">
         <h1>Review Form</h1>
 
         <Field

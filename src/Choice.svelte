@@ -19,12 +19,16 @@
         display: block;
         font-weight: var(--font-weight-bold);
     }
+
+    .choice-caption {
+        color: var(--color-text-light);
+    }
 </style>
 
 <label class="choice">
     <input type="radio" name={id} value={value}>
     <div class="choice-info">
         <strong class="choice-label">{label}</strong>
-        {caption}
+        <span class="choice-caption">{caption}</span>
     </div>
 </label>
