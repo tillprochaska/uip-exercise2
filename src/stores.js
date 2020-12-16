@@ -1,3 +1,3 @@
 import { writable } from 'svelte/store';
 
-export const title = writable('Lorem Ipsum');
+export const currentStep = writable(0);
