@@ -1,4 +1,6 @@
 <script>
+    import Stack from './Stack.svelte';
+    import Button from './Button.svelte';
     import { setContext } from 'svelte';
 
     // `currentStep` is a store
@@ -16,12 +18,31 @@
     });
 </script>
 
-<slot />
+<style>
+    .pagination {
+        display: flex;
+        justify-content: space-between;
+    }
 
-{#if $currentStep > 0}
-    <button on:click={() => $currentStep--}>Previous</button>
-{/if}
+    :global([rel="next"]) {
+        margin-left: auto;
+    }
+</style>
 
-{#if $currentStep  < stepsCount - 1}
-    <button on:click={() => $currentStep++}>Next</button>
-{/if}
+<Stack>
+    <slot />
+
+    <div class="pagination">
+        {#if $currentStep > 0}
+            <Button style="secondary" rel="prev" on:click={() => $currentStep--}>
+                Previous
+            </Button>
+        {/if}
+
+        {#if $currentStep  < stepsCount - 1}
+            <Button rel="next" on:click={() => $currentStep++}>
+                Next
+            </Button>
+        {/if}
+    </div>
+</Stack>
