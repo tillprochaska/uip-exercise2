@@ -86,6 +86,7 @@
     input:focus::after {
         --input-shadow-color-focus: var(--color-background);
 
+        opacity: 1;
         box-shadow: var(--input-shadow-focus);
         border-color: var(--color-border-focus);
     }
