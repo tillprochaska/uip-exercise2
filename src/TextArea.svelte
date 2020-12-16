@@ -5,6 +5,7 @@
 <style>
     textarea {
         width: 100%;
+        height: calc(4 * var(--spacing-unit));
         padding: var(--input-padding);
 
         line-height: var(--line-height);
@@ -13,14 +14,15 @@
 
         border-width: var(--input-border-width);
         border-color: var(--input-border-color);
-        border-radius: 0;
+        border-radius: var(--input-border-radius);
         resize: none;
     }
 
     textarea:focus {
         outline: none;
-        box-shadow: 0 0 0 3px var(--blue-100);
+        box-shadow: var(--input-shadow-focus);
         border-color: var(--input-border-color-focus);
+        border-width: var(--input-border-width-focus);
     }
 </style>
 
