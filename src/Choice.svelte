@@ -18,9 +18,30 @@
         padding: var(--spacing-unit-s);
     }
 
-    .choice > input {
-        align-self: center;
+    .strong-negative {
+        --color-border: var(--red-600);
+        --color-border-focus: var(--red-600);
+        --color-background: var(--red-50);
     }
+
+    .negative {
+        --color-border: var(--orange-600);
+        --color-border-focus: var(--orange-600);
+        --color-background: var(--orange-50);
+    }
+
+    .positive {
+        --color-border: var(--lime-600);
+        --color-border-focus: var(--lime-600);
+        --color-background: var(--lime-50);
+    }
+    
+    .strong-positive {
+        --color-border: var(--green-600);
+        --color-border-focus: var(--green-600);
+        --color-background: var(--green-50);
+    }
+    
 
     .choice-label {
         display: block;
@@ -30,16 +51,22 @@
     .choice-caption {
         color: var(--color-text-light);
     }
+    
+    input {
+        align-self: center;
+    }
 
     input::after {
         content: '';
         position: absolute;
         top: 0;
         left: 0;
+        bottom: 0;
+        right: 0;
         z-index: -1;
 
-        width: 100%;
-        height: 100%;
+        background: var(--color-background);
+        opacity: .5;
 
         border-width: var(--input-border-width);
         border-color: var(--color-border);
@@ -48,8 +75,8 @@
     }
 
     input:checked::after {
-        background: var(--color-background);
         border-width: var(--input-border-width-focus);
+        opacity: 1;
     }
 
     input:focus {
@@ -57,6 +84,8 @@
     }
 
     input:focus::after {
+        --input-shadow-color-focus: var(--color-background);
+
         box-shadow: var(--input-shadow-focus);
         border-color: var(--color-border-focus);
     }

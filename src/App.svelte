@@ -62,30 +62,35 @@
                     value="definitely-reject"
                     label="Definitely reject"
                     caption="I would protest strongly if it's accepted."
+                    theme="strong-negative"
                 />
                 <Choice
                     id="rating"
                     value="probably-reject"
                     label="Probably reject"
                     caption="I would argue against this paper."
+                    theme="negative"
                 />
                 <Choice
                     id="rating"
                     value="possibly-accept"
                     label="Possibly accept"
                     caption="But only if others champion it."
+                    theme="neutral"
                 />
                 <Choice
                     id="rating"
                     value="probably-accept"
                     label="Probably accept"
                     caption="I would argue for this paper."
+                    theme="positive"
                 />
                 <Choice
                     id="rating"
                     value="definitely-accept"
                     label="Definitely accept"
                     caption="I would protest strongly if it's accepted."
+                    theme="strong-positive"
                 />
             </Stack>
         </Field>
