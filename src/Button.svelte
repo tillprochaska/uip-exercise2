@@ -1,8 +1,4 @@
 <script>
-    import App from "./App.svelte";
-    import Choice from "./Choice.svelte";
-    import Field from "./Field.svelte";
-
     export let style = '';
 </script>
 
