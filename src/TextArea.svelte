@@ -1,5 +1,7 @@
 <script>
     export let id;
+    export let value = "";
+
 
     function autoresize(node) {
         // `offsetHeight` includes the top and bottom borders
@@ -59,4 +61,5 @@
     name={id}
     aria-describedby="{id}-help"
     use:autoresize
+    bind:value
 ></textarea>
