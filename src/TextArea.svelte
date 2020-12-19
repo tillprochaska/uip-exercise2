@@ -30,6 +30,7 @@
 
 <style>
     textarea {
+        display: block;
         width: 100%;
         min-height: calc(4 * var(--spacing-unit));
         max-height: calc(12 * var(--spacing-unit));
