@@ -24,11 +24,11 @@
         bottom: 0;
 
         display: flex;
-        margin-top: var(--spacing-unit-s);
-        padding: var(--spacing-unit) 0 var(--spacing-unit-s);
+        margin-top: var(--spacing-unit-l);
+        padding: var(--spacing-unit) 0;
         justify-content: space-between;
-        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 1) var(--spacing-unit-s));
-        /* border-top: 1px solid var(--gray-300); */
+        background: #fff;
+        border-top: 1px solid var(--gray-300);
     }
 
     :global([rel="next"]) {
