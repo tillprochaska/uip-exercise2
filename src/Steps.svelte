@@ -20,8 +20,15 @@
 
 <style>
     .pagination {
+        position: sticky;
+        bottom: 0;
+
         display: flex;
+        margin-top: var(--spacing-unit-s);
+        padding: var(--spacing-unit) 0 var(--spacing-unit-s);
         justify-content: space-between;
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 1) var(--spacing-unit-s));
+        /* border-top: 1px solid var(--gray-300); */
     }
 
     :global([rel="next"]) {
@@ -29,20 +36,18 @@
     }
 </style>
 
-<Stack>
-    <slot />
+<slot />
 
-    <div class="pagination">
-        {#if $currentStep > 0}
-            <Button style="secondary" rel="prev" on:click={() => $currentStep--}>
-                Previous
-            </Button>
-        {/if}
+<div class="pagination">
+    {#if $currentStep > 0}
+        <Button style="secondary" rel="prev" on:click={() => $currentStep--}>
+            Previous
+        </Button>
+    {/if}
 
-        {#if $currentStep  < stepsCount - 1}
-            <Button rel="next" on:click={() => $currentStep++}>
-                Next
-            </Button>
-        {/if}
-    </div>
-</Stack>
+    {#if $currentStep  < stepsCount - 1}
+        <Button rel="next" on:click={() => $currentStep++}>
+            Next
+        </Button>
+    {/if}
+</div>
