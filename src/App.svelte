@@ -63,7 +63,7 @@
 </style>
 
 <div class="columns">
-    <div class="sidebar">
+    <div class="sidebar hide-print">
         <nav>
             Seitenleiste
         </nav>

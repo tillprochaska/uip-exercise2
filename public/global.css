@@ -94,3 +94,8 @@ body {
     font-size: 1rem; 
 }
 
+@media print {
+    .hide-print {
+        display: none !important;
+    }
+}

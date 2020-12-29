@@ -38,7 +38,7 @@
 
 <slot />
 
-<div class="pagination">
+<div class="pagination hide-print">
     {#if $currentStep > 0}
         <Button style="secondary" rel="prev" on:click={() => $currentStep--}>
             Previous

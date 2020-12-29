@@ -30,7 +30,9 @@ import { empty } from 'svelte/internal';
 <Stack space="xsmall">
     <div class="label">
         <h2 class="gamma">{label}</h2>
-        <Button style="secondary small" on:click={() => $currentStep = step}>Edit</Button>
+        <div class="hide-print">
+            <Button style="secondary small" on:click={() => $currentStep = step}>Edit</Button>
+        </div>
     </div>
 
     <p>
