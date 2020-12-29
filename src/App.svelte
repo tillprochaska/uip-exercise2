@@ -18,6 +18,7 @@
     import Stack from './Stack.svelte';
     import Steps from './Steps.svelte';
     import Step from './Step.svelte';
+    import Overview from './Overview.svelte'
 </script>
 
 <style>
@@ -201,6 +202,10 @@
                 >
                     <TextArea id="comments" bind:value={$privateComments}/>
                 </Field>
+            </Step>
+
+            <Step>
+                <Overview />
             </Step>
         </Steps>
     </main>

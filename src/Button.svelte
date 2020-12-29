@@ -1,18 +1,13 @@
 <script>
-    export let style = '';
+    export let style = 'primary';
 </script>
 
 <style>
     button {
-        padding: var(--spacing-unit-s) var(--spacing-unit);
         font-size: 1rem;
         font-family: var(--font-family);
-        font-weight: var(--font-weight-bold);
-
-        background-color: var(--blue-600);
-        color: #fff;
+        background: none;
         border: none;
-        border-radius: var(--input-border-radius);
     }
 
     button:focus {
@@ -20,10 +15,27 @@
         box-shadow: var(--input-shadow-focus)
     }
 
+    .primary,
+    .secondary {
+        padding: var(--spacing-unit-s) var(--spacing-unit);
+        border-radius: var(--input-border-radius);
+    }
+
+    .primary {
+        background-color: var(--blue-600);
+        color: #fff;
+        font-weight: var(--font-weight-bold);
+    }
+
     .secondary {
         background-color: var(--gray-200);
         color: var(--gray-900);
-        font-weight: unset;
+    }
+
+    .small {
+        padding: var(--spacing-unit-xs) var(--spacing-unit-s);
+        font-size: .85rem;
+        border-radius: 9999px;
     }
 </style>
 

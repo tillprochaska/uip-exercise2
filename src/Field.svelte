@@ -10,11 +10,6 @@
         margin-bottom: var(--spacing-unit-s);
     }
 
-    .field-label {
-        font-weight: var(--font-weight-bold);
-        font-size: 1.25rem;
-    }
-
     fieldset {
         border: none;
     }
@@ -23,7 +18,7 @@
 <div class="field">
     {#if !fieldset}
         <div class="field-info">
-            <label class="field-label" for={id}>
+            <label class="beta" for={id}>
                 {label}
             </label>
             <p id="{id}-help">
@@ -36,7 +31,7 @@
     {#if fieldset}
         <fieldset>
             <div class="field-info">
-                <legend class="field-label">{label}</legend>
+                <legend class="beta">{label}</legend>
                 <p>{help}</p>
             </div>
             <slot />
