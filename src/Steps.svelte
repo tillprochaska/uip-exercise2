@@ -25,7 +25,10 @@
 
         display: flex;
         margin-top: var(--spacing-unit-l);
+
+        margin-bottom: calc(-1 * var(--spacing-unit));
         padding: var(--spacing-unit) 0;
+        
         justify-content: space-between;
         background: #fff;
         border-top: 1px solid var(--gray-300);
