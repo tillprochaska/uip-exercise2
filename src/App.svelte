@@ -129,7 +129,7 @@
                         <Stack space="small">
                             <Choice
                                 id="rating"
-                                value="definitely-reject"
+                                value="Definitely reject"
                                 label="Definitely reject"
                                 caption="I would protest strongly if it's accepted."
                                 theme="strong-negative"
@@ -137,7 +137,7 @@
                             />
                             <Choice
                                 id="rating"
-                                value="probably-reject"
+                                value="Probably reject"
                                 label="Probably reject"
                                 caption="I would argue against this paper."
                                 theme="negative"
@@ -145,7 +145,7 @@
                             />
                             <Choice
                                 id="rating"
-                                value="possibly-accept"
+                                value="Possibly accept"
                                 label="Possibly accept"
                                 caption="But only if others champion it."
                                 theme="neutral"
@@ -153,7 +153,7 @@
                             />
                             <Choice
                                 id="rating"
-                                value="probably-accept"
+                                value="Probably accept"
                                 label="Probably accept"
                                 caption="I would argue for this paper."
                                 theme="positive"
@@ -161,7 +161,7 @@
                             />
                             <Choice
                                 id="rating"
-                                value="definitely-accept"
+                                value="Definitely accept"
                                 label="Definitely accept"
                                 caption="I would protest strongly if it's accepted."
                                 theme="strong-positive"
@@ -187,9 +187,9 @@
                     fieldset={true}
                 >
                     <Stack space="small">
-                        <Choice value={"beginner"} label="Beginner" id="expertise" bind:group={$expertise} />
+                        <Choice value={"beginner"} label="Beginner" id="Expertise" bind:group={$expertise} />
                         <Choice value={"knowledgeable"} label="Knowledgeable" id="expertise" bind:group={$expertise} />
-                        <Choice value={"expert"} label="Expert" id="expertise" bind:group={$expertise} />
+                        <Choice value={"expert"} label="Expert" id="Expertise" bind:group={$expertise} />
                     </Stack>
                 </Field>
             </Step>
