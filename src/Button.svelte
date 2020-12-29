@@ -26,6 +26,7 @@
         background-color: var(--blue-600);
         color: #fff;
         font-weight: var(--font-weight-bold);
+        -webkit-font-smoothing: antialiased;
     }
 
     .secondary {
