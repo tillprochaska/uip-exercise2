@@ -53,7 +53,7 @@
     --input-border-width-focus: 2px;
     --input-shadow-color-focus: var(--blue-100);
     --input-shadow-focus: 0 0 0 1px #fff, 0 0 0 3px var(--input-shadow-color-focus);
-    --input-border-color: var(--gray-600);
+    --input-border-color: var(--gray-400);
     --input-border-color-focus: var(--blue-500);
     --input-border-radius: 3px;
 
