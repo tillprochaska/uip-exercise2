@@ -19,6 +19,7 @@
     .secondary {
         padding: var(--spacing-unit-s) var(--spacing-unit);
         border-radius: var(--input-border-radius);
+        border-radius: 9999px;
     }
 
     .primary {
@@ -35,7 +36,6 @@
     .small {
         padding: var(--spacing-unit-xs) var(--spacing-unit-s);
         font-size: .85rem;
-        border-radius: 9999px;
     }
 </style>
 
