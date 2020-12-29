@@ -1,6 +1,17 @@
 <script>
-    import { currentStep } from './stores.js';
-    
+    import { 
+        description, 
+        currentStep,
+        resubmission,
+        clarityOfExposition,
+        qualityOfReferences,
+        reproducibility,
+        explanationOfRating,
+        privateComments,
+        expertise,
+        rating
+    } from './stores.js';
+ 
     import Field from './Field.svelte';
     import TextArea from './TextArea.svelte';
     import Choice from './Choice.svelte';
@@ -66,7 +77,7 @@
                     help="Briefly describe the paper and its contribution to computer graphics and interactive techniques. Please give your assessment of the scope and magnitude of the paper's contribution."
                     id="description"
                     >
-                        <TextArea id="description" />
+                        <TextArea id="description" bind:value={$description} />
                     </Field>
 
                     <Field
@@ -74,7 +85,7 @@
                         help="If the paper is a resubmission with reviewer continuity, please give your assessment of how the authors took into account comments from reviewers in the previous review cycle and improved their work. Note that the reviewing system gives you access to the former reviews and that the authors were instructed to upload a cover letter outlining the changes to their work as supplementary material."
                         id="resubmission"
                     >
-                        <TextArea id="resubmission" />
+                        <TextArea id="resubmission" bind:value={$resubmission} />
                     </Field>
                 </Stack>
             </Step>
@@ -86,7 +97,7 @@
                         help="Is the exposition clear? How could it be improved?"
                         id="expo-clarity"
                     >
-                        <TextArea id="expo-clarity" />
+                        <TextArea id="expo-clarity" bind:value={$clarityOfExposition} />
                     </Field>
 
                     <Field
@@ -94,7 +105,7 @@
                         help="Are the references adequate? List any additional references that are needed."
                         id="ref-quality"
                     >
-                        <TextArea id="ref-quality" />
+                        <TextArea id="ref-quality" bind:value={$qualityOfReferences}/>
                     </Field>
 
                     <Field
@@ -102,7 +113,7 @@
                         help="Could the work be reproduced from the information in the paper? Are all important algorithmic or system details discussed adequately? Are the limitations and drawbacks of the work clear?"
                         id="reproducibility"
                     >
-                        <TextArea id="reproducibility" />
+                        <TextArea id="reproducibility" bind:value={$reproducibility}/>
                     </Field>
                 </Stack>
             </Step>
@@ -121,6 +132,7 @@
                                 label="Definitely reject"
                                 caption="I would protest strongly if it's accepted."
                                 theme="strong-negative"
+                                bind:group={$rating}
                             />
                             <Choice
                                 id="rating"
@@ -128,6 +140,7 @@
                                 label="Probably reject"
                                 caption="I would argue against this paper."
                                 theme="negative"
+                                bind:group={$rating}
                             />
                             <Choice
                                 id="rating"
@@ -135,6 +148,7 @@
                                 label="Possibly accept"
                                 caption="But only if others champion it."
                                 theme="neutral"
+                                bind:group={$rating}
                             />
                             <Choice
                                 id="rating"
@@ -142,6 +156,7 @@
                                 label="Probably accept"
                                 caption="I would argue for this paper."
                                 theme="positive"
+                                bind:group={$rating}
                             />
                             <Choice
                                 id="rating"
@@ -149,6 +164,7 @@
                                 label="Definitely accept"
                                 caption="I would protest strongly if it's accepted."
                                 theme="strong-positive"
+                                bind:group={$rating}
                             />
                         </Stack>
                     </Field>
@@ -158,7 +174,7 @@
                         help="Explain your rating by discussing the strengths and weaknesses of the submission, contributions, and the potential impact of the paper. Include suggestions for improvement and publication alternatives, if appropriate. Be thorough. Be fair. Be courteous. Be constructive. Your evaluation will be forwarded to the authors during the rebuttal period."
                         id="explanation"
                     >
-                        <TextArea id="explanation" />
+                        <TextArea id="explanation" bind:value={$explanationOfRating}/>
                     </Field>
                 </Stack>
             </Step>
@@ -170,9 +186,9 @@
                     fieldset={true}
                 >
                     <Stack space="small">
-                        <Choice value="beginner" label="Beginner" id="expertise" />
-                        <Choice value="knowledgeable" label="Knowledgeable" id="expertise" />
-                        <Choice value="expert" label="Expert" id="expertise" />
+                        <Choice value={"beginner"} label="Beginner" id="expertise" bind:group={$expertise} />
+                        <Choice value={"knowledgeable"} label="Knowledgeable" id="expertise" bind:group={$expertise} />
+                        <Choice value={"expert"} label="Expert" id="expertise" bind:group={$expertise} />
                     </Stack>
                 </Field>
             </Step>
@@ -183,7 +199,7 @@
                     help="You may enter private comments for the papers committee here. These comments will not be sent to the paper author(s). Please do not mention any other papers that are currently in review, or the names of people associated with these papers."
                     id="comments"
                 >
-                    <TextArea id="comments" />
+                    <TextArea id="comments" bind:value={$privateComments}/>
                 </Field>
             </Step>
         </Steps>

@@ -4,6 +4,7 @@
     export let label;
     export let theme = '';
     export let caption = '';
+    export let group = '';
 </script>
 
 <style>
@@ -93,7 +94,12 @@
 </style>
 
 <label class="choice {theme}">
-    <input type="radio" name={id} value={value}>
+    <input
+        type="radio"
+        name={id}
+        {value}
+        bind:group
+    >
     <div class="choice-info">
         <strong class="choice-label">{label}</strong>
         <span class="choice-caption">{caption}</span>
