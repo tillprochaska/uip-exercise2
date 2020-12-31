@@ -22,34 +22,34 @@
 
     import StepsNavItem from './StepsNavItem.svelte';
 
-    $: steps = [
+    const steps = [
         {
             title: 'Hello Hello',
-            state: $helloStepState,
+            state: helloStepState,
         },
         {
             title: 'Description & Resubmission',
-            state: $descriptionStepState,
+            state: descriptionStepState,
         },
         {
             title: 'Quality',
-            state: $qualityStepState,
+            state: qualityStepState,
         },
         {
             title: 'Rating',
-            state: $ratingStepState,
+            state: ratingStepState,
         },
         {
             title: 'Reviewer Expertise',
-            state: $expertiseStepState,
+            state: expertiseStepState,
         },
         {
             title: 'Private Comments',
-            state: $commentsStepState,
+            state: commentsStepState,
         },
         {
             title: 'Summary',
-            state: $summaryStepState,
+            state: summaryStepState,
         },
     ];
 </script>

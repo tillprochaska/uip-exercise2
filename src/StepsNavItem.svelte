@@ -91,13 +91,13 @@
 </style>
 
 <li class={`
-    ${state.type}
+    ${$state.type}
     ${index <= $currentStep ? 'visited' : ''}
     ${index == $currentStep ? 'current' : ''}
 `}>
     <a role="button" href="#" on:click={() => $currentStep = index}>
         <div class="bullet">
-            {#if state.type === 'valid' && $currentStep !== index}
+            {#if $state.type === 'valid' && $currentStep !== index}
                 <Icon data={check} />
             {:else}
                 {index + 1}
