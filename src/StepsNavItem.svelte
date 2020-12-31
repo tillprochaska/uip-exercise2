@@ -7,6 +7,20 @@
     export let index;
     export let title;
     export let state;
+
+    $: isValid = $state.type === 'valid';
+    $: isVisited = index <= $currentStep;
+    $: isCurrent = index === $currentStep;
+
+    $: classNames = [
+        $state.type,
+        isVisited ? 'visited' : '',
+        isCurrent ? 'current' : '',
+    ].join(' ');
+
+    function goToStep() {
+        $currentStep = index;
+    }
 </script>
 
 <style>
@@ -90,14 +104,10 @@
     }
 </style>
 
-<li class={`
-    ${$state.type}
-    ${index <= $currentStep ? 'visited' : ''}
-    ${index == $currentStep ? 'current' : ''}
-`}>
-    <a role="button" href="#" on:click={() => $currentStep = index}>
+<li class={classNames}>
+    <a role="button" href="#" on:click={goToStep}>
         <div class="bullet">
-            {#if $state.type === 'valid' && $currentStep !== index}
+            {#if isValid && !isCurrent}
                 <Icon data={check} />
             {:else}
                 {index + 1}
