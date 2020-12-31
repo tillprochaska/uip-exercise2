@@ -28,7 +28,7 @@
 
         rating,
         ratingState,
-    } from './stores.js';
+    } from '../stores.js';
 
     import Stack from './Stack.svelte';
     import Button from './Button.svelte';

@@ -1,5 +1,5 @@
 <script>
-    import autoresize from './autoresize.js';
+    import autoresize from '../actions/autoresize.js';
 
     export let id;
     export let value = '';
@@ -14,6 +14,7 @@
 
     textarea {
         display: block;
+
         width: 100%;
         min-height: calc(4 * var(--spacing-unit));
         max-height: calc(12 * var(--spacing-unit));
@@ -30,6 +31,8 @@
     }
 
     textarea:focus {
+        --border-diff: calc(var(--input-border-width) - var(--input-border-width-focus));
+
         outline: none;
         box-shadow: var(--input-shadow-focus);
         border-color: var(--input-border-color-focus);

@@ -2,7 +2,8 @@
     import Stack from './Stack.svelte';
     import Button from './Button.svelte';
     import FieldMessage from './FieldMessage.svelte';
-    import { currentStep } from './stores.js';
+
+    import { currentStep } from '../stores.js';
 
     export let label;
     export let step;

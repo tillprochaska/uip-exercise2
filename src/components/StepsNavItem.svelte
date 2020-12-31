@@ -2,7 +2,7 @@
     import Icon from 'svelte-awesome';
     import { check } from 'svelte-awesome/icons';
 
-    import { currentStep } from './stores.js';
+    import { currentStep } from '../stores.js';
 
     export let index;
     export let title;

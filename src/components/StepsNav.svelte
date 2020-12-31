@@ -18,7 +18,7 @@
         expertiseStepState,
         commentsStepState,
         summaryStepState,
-    } from './stores.js';
+    } from '../stores.js';
 
     import StepsNavItem from './StepsNavItem.svelte';
 

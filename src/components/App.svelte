@@ -29,7 +29,7 @@
         comments,
         commentsState,
 
-    } from './stores.js';
+    } from '../stores.js';
 
     import Field from './Field.svelte';
     import TextArea from './TextArea.svelte';

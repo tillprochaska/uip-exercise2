@@ -1,7 +1,8 @@
 <script>
+    import { setContext } from 'svelte';
+
     import Stack from './Stack.svelte';
     import Button from './Button.svelte';
-    import { setContext } from 'svelte';
 
     // `currentStep` is a store
     export let currentStep;
@@ -28,7 +29,7 @@
 
         margin-bottom: calc(-1 * var(--spacing-unit));
         padding: var(--spacing-unit) 0;
-        
+
         justify-content: space-between;
         background: #fff;
         border-top: 1px solid var(--gray-300);
