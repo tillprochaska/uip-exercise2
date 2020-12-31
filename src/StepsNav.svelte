@@ -27,11 +27,12 @@
 
     li {
         position: relative;
+        padding: var(--spacing-unit-xs) 0;
         font-size: .85rem;
     }
 
     li + li {
-        margin-top: var(--spacing-unit-l);
+        margin-top: var(--spacing-unit);
     }
 
     a {
@@ -67,11 +68,11 @@
         content: '';
 
         position: absolute;
-        top: calc(-.875 * var(--spacing-unit-l));
+        top: calc(-1 * var(--spacing-unit));
         left: calc(.5 * var(--bullet-size) - .5 * var(--bullet-border-width));
 
         width: var(--bullet-border-width);
-        height: calc(.75 * var(--spacing-unit-l));
+        height: var(--spacing-unit);
         border-right: var(--bullet-border-width) dashed var(--bullet-color);
     }
 
