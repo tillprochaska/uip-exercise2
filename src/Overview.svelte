@@ -1,8 +1,8 @@
 <script>
     import { get } from 'svelte/store';
 
-    import { 
-        description, 
+    import {
+        description,
         resubmission,
         clarityOfExposition,
         qualityOfReferences,

@@ -1,6 +1,6 @@
 <script>
-    import { 
-        description, 
+    import {
+        description,
         currentStep,
         resubmission,
         clarityOfExposition,
@@ -11,7 +11,7 @@
         expertise,
         rating
     } from './stores.js';
- 
+
     import Field from './Field.svelte';
     import TextArea from './TextArea.svelte';
     import Choice from './Choice.svelte';
@@ -70,6 +70,11 @@
     </div>
     <main>
         <Steps {currentStep}>
+
+            <Step>
+                <h1 class="alpha">Hello Hello</h1>
+                <a href="https://s2020.siggraph.org/submissions/technical-papers-submissions/technical-papers-reviewers-instructions-ethics/" target="_blank">Clicky clicky</a>
+            </Step>
 
             <Step>
                 <Stack space="large">
@@ -179,7 +184,7 @@
                     </Field>
                 </Stack>
             </Step>
-            
+
             <Step>
                 <Field
                     label="Reviewer Expertise"
