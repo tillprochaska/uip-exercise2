@@ -18,15 +18,15 @@
     import OverviewSection from './OverviewSection.svelte';
 
     const fields = [
-        { label: 'Description', store: description, step: 0, },
-        { label: 'Resubmission', store: resubmission, step: 0 },
-        { label: 'Clarity Of Exposition', store: clarityOfExposition, step: 1 },
-        { label: 'Quality of References', store: qualityOfReferences, step: 1 },
-        { label: 'Reproducibility', store: reproducibility, step: 1 },
-        { label: 'Rating', store: rating, step: 2 },
-        { label: 'Explanation of Rating', store: explanationOfRating, step: 2 },
-        { label: 'Reviewer Expertise', store: expertise, step: 3 },
-        { label: 'Private Comments', store: privateComments, step: 4 },
+        { label: 'Description', store: description, step: 1, },
+        { label: 'Resubmission', store: resubmission, step: 1 },
+        { label: 'Clarity Of Exposition', store: clarityOfExposition, step: 2 },
+        { label: 'Quality of References', store: qualityOfReferences, step: 2 },
+        { label: 'Reproducibility', store: reproducibility, step: 2 },
+        { label: 'Rating', store: rating, step: 3 },
+        { label: 'Explanation of Rating', store: explanationOfRating, step: 3 },
+        { label: 'Reviewer Expertise', store: expertise, step: 4 },
+        { label: 'Private Comments', store: privateComments, step: 5 },
     ];
 
     function generatePlaintext() {
