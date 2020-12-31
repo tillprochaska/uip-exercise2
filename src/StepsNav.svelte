@@ -1,5 +1,7 @@
 <script>
     import { derived } from 'svelte/store';
+    import Icon from 'svelte-awesome';
+    import { check } from 'svelte-awesome/icons';
 
     import {
         currentStep,
@@ -89,16 +91,13 @@
         gap: var(--spacing-unit-s);
     }
 
-    a::before {
-        counter-increment: step;
-        content: counter(step);
-
-        display: block;
+    .bullet {
+        display: flex;
         width: var(--bullet-size);
         height: var(--bullet-size);
         flex-shrink: 0;
-        text-align: center;
-        line-height: 1.5rem;
+        justify-content: space-around;
+        align-items: center;
 
         border: var(--bullet-border-width) solid var(--bullet-color);
         border-radius: 50%;
@@ -106,18 +105,18 @@
         font-weight: var(--font-weight-bold);
     }
 
-    .visited a::before {
+    .visited .bullet {
         background-color: var(--bullet-color);
         color: #fff;
     }
 
-    .valid a::before {
+    .valid .bullet {
         background-color: var(--bullet-color-valid);
         border-color: var(--bullet-color-valid);
         color: #fff;
     }
 
-    .current a::before {
+    .current .bullet {
         background-color: var(--bullet-color-completed);
         border-color: var(--bullet-color-completed);
         color: #fff;
@@ -158,6 +157,14 @@
                 ${index == $currentStep ? 'current' : ''}
             `}>
                 <a role="button" href="#" on:click={() => $currentStep = index}>
+                    <div class="bullet">
+                        {#if state === 'valid' && $currentStep !== index}
+                            <Icon data={check} />
+                        {:else}
+                            {index + 1}
+                        {/if}
+                    </div>
+
                     {title}
                 </a>
             </li>
