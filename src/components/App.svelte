@@ -221,21 +221,21 @@
                 >
                     <Stack space="small">
                         <Choice
-                            value={"beginner"}
+                            value="Beginner"
                             label="Beginner"
                             id="Expertise"
                             bind:group={$expertise}
                         />
 
                         <Choice
-                            value={"knowledgeable"}
+                            value="Knowledgeable"
                             label="Knowledgeable"
                             id="expertise"
                             bind:group={$expertise}
                         />
 
                         <Choice
-                            value={"expert"}
+                            value="Expert"
                             label="Expert"
                             id="Expertise"
                             bind:group={$expertise}
