@@ -32,14 +32,14 @@ const stepState = fieldStates => {
     const types = fieldStates.map(state => state.type);
 
     if(types.includes('invalid')) {
-        return 'invalid';
+        return { type: 'invalid' };
     }
 
     if(types.includes('empty')) {
-        return 'empty';
+        return { type: 'empty' };
     }
 
-    return 'valid';
+    return { type: 'valid' };
 };
 
 export const currentStep = writable('currentStep', 0);
@@ -97,4 +97,10 @@ export const commentsStepState = derived([
     commentsState,
 ], stepState);
 
-export const summaryStepState = derived([], stepState);
+export const summaryStepState = derived([
+    descriptionStepState,
+    qualityStepState,
+    ratingStepState,
+    expertiseStepState,
+    commentsStepState,
+], stepState);
