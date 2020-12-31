@@ -18,7 +18,8 @@
     import Stack from './Stack.svelte';
     import Steps from './Steps.svelte';
     import Step from './Step.svelte';
-    import Overview from './Overview.svelte'
+    import StepsNav from './StepsNav.svelte';
+    import Overview from './Overview.svelte';
 </script>
 
 <style>
@@ -37,7 +38,7 @@
         background-color: var(--gray-100);
     }
 
-    nav {
+    .sidebar-content {
         position: sticky;
         top: 0;
         padding: var(--spacing-unit);
@@ -64,9 +65,9 @@
 
 <div class="columns">
     <div class="sidebar hide-print">
-        <nav>
-            Seitenleiste
-        </nav>
+        <div class="sidebar-content">
+            <StepsNav />
+        </div>
     </div>
     <main>
         <Steps {currentStep}>
