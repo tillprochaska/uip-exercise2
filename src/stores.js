@@ -4,33 +4,38 @@ import { derived } from 'svelte/store';
 const textValidator = (min, max) => {
     return $value => {
         const chars = $value.length;
+        const message = `Enter between ${min} and ${max} characters.`;
 
         if(chars <= 0) {
-            return 'empty';
+            return { type: 'empty', message };
         }
 
         if(chars < min || chars > max) {
-            return 'invalid';
+            return { type: 'invalid', message };
         }
 
-        return 'valid';
+        return {type: 'valid', message };
     };
 }
 
 const choiceValidator = value => {
+    const message = 'Please select an option';
+
     if(value === '') {
-        return 'empty';
+        return { type: 'empty', message };
     }
 
-    return 'valid';
+    return { type: 'valid', message };
 };
 
 const stepState = fieldStates => {
-    if(fieldStates.includes('invalid')) {
+    const types = fieldStates.map(state => state.type);
+
+    if(types.includes('invalid')) {
         return 'invalid';
     }
 
-    if(fieldStates.includes('empty')) {
+    if(types.includes('empty')) {
         return 'empty';
     }
 

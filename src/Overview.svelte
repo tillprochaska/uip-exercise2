@@ -3,14 +3,31 @@
 
     import {
         description,
+        descriptionState,
+
         resubmission,
+        resubmissionState,
+
         expoClarity,
+        expoClarityState,
+
         refQuality,
+        refQualityState,
+
         reproducibility,
+        reproducibilityState,
+
         explanation,
+        explanationState,
+
         comments,
+        commentsState,
+
         expertise,
-        rating
+        expertiseState,
+
+        rating,
+        ratingState,
     } from './stores.js';
 
     import Stack from './Stack.svelte';
@@ -18,20 +35,65 @@
     import OverviewSection from './OverviewSection.svelte';
 
     const fields = [
-        { label: 'Description', store: description, step: 1, },
-        { label: 'Resubmission', store: resubmission, step: 1 },
-        { label: 'Clarity Of Exposition', store: expoClarity, step: 2 },
-        { label: 'Quality of References', store: refQuality, step: 2 },
-        { label: 'Reproducibility', store: reproducibility, step: 2 },
-        { label: 'Rating', store: rating, step: 3 },
-        { label: 'Explanation of Rating', store: explanation, step: 3 },
-        { label: 'Reviewer Expertise', store: expertise, step: 4 },
-        { label: 'Private Comments', store: comments, step: 5 },
+        {
+            label: 'Description',
+            value: description,
+            state: descriptionState,
+            step: 1,
+        },
+        {
+            label: 'Resubmission',
+            value: resubmission,
+            state: descriptionState,
+            step: 1
+        },
+        {
+            label: 'Clarity Of Exposition',
+            value: expoClarity,
+            state: expoClarityState,
+            step: 2
+        },
+        {
+            label: 'Quality of References',
+            value: refQuality,
+            state: refQualityState,
+            step: 2
+        },
+        {
+            label: 'Reproducibility',
+            value: reproducibility,
+            state: refQualityState,
+            step: 2
+        },
+        {
+            label: 'Rating',
+            value: rating,
+            state: ratingState,
+            step: 3
+        },
+        {
+            label: 'Explanation of Rating',
+            value: explanation,
+            state: explanationState,
+            step: 3
+        },
+        {
+            label: 'Reviewer Expertise',
+            value: expertise,
+            state: expertiseState,
+            step: 4
+        },
+        {
+            label: 'Private Comments',
+            value: comments,
+            state: expertiseState,
+            step: 5
+        },
     ];
 
     function generatePlaintext() {
         return fields
-            .map(({ label, store }) => `${label.toUpperCase()}\n${get(store)}`)
+            .map(({ label, value }) => `${label.toUpperCase()}\n${get(value)}`)
             .join('\n\n');
     }
 
@@ -70,8 +132,13 @@
         <Button style="primary small" on:click={download}>Download</Button>
     </div>
 
-    {#each fields as { label, store, step }}
-        <OverviewSection label={label} step={step} value={store} />
+    {#each fields as { label, value, state, step }}
+        <OverviewSection
+            label={label}
+            step={step}
+            {value}
+            {state}
+        />
     {/each}
 
     <div class="hide-print">

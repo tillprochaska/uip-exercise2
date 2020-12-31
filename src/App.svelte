@@ -39,12 +39,6 @@
     import Step from './Step.svelte';
     import StepsNav from './StepsNav.svelte';
     import Overview from './Overview.svelte';
-
-    const textMessage = (min, max) => {
-        return `Please enter between ${min} and ${max} characters.`;
-    };
-
-    const choiceMessage = 'Please select one of the options.';
 </script>
 
 <style>
@@ -108,8 +102,7 @@
                         id="description"
                         label="Description"
                         help="Briefly describe the paper and its contribution to computer graphics and interactive techniques. Please give your assessment of the scope and magnitude of the paper's contribution."
-                        state={$descriptionState}
-                        message={textMessage(500, 1000)}
+                        state={descriptionState}
                     >
                         <TextArea id="description" bind:value={$description} />
                     </Field>
@@ -118,8 +111,7 @@
                         id="resubmission"
                         label="Resubmission"
                         help="If the paper is a resubmission with reviewer continuity, please give your assessment of how the authors took into account comments from reviewers in the previous review cycle and improved their work. Note that the reviewing system gives you access to the former reviews and that the authors were instructed to upload a cover letter outlining the changes to their work as supplementary material."
-                        state={$resubmissionState}
-                        message={textMessage(500, 1000)}
+                        state={resubmissionState}
                     >
                         <TextArea id="resubmission" bind:value={$resubmission} />
                     </Field>
@@ -132,8 +124,7 @@
                         id="expo-clarity"
                         label="Clarity of Exposition"
                         help="Is the exposition clear? How could it be improved?"
-                        state={$expoClarityState}
-                        message={textMessage(500, 1000)}
+                        state={expoClarityState}
                     >
                         <TextArea id="expo-clarity" bind:value={$expoClarity} />
                     </Field>
@@ -142,8 +133,7 @@
                         id="ref-quality"
                         label="Quality of References"
                         help="Are the references adequate? List any additional references that are needed."
-                        state={$refQualityState}
-                        message={textMessage(500, 1000)}
+                        state={refQualityState}
                     >
                         <TextArea id="ref-quality" bind:value={$refQuality} />
                     </Field>
@@ -152,8 +142,7 @@
                         label="Reproducibility"
                         help="Could the work be reproduced from the information in the paper? Are all important algorithmic or system details discussed adequately? Are the limitations and drawbacks of the work clear?"
                         id="reproducibility"
-                        state={$reproducibilityState}
-                        message={textMessage(500, 1000)}
+                        state={reproducibilityState}
                     >
                         <TextArea id="reproducibility" bind:value={$reproducibility} />
                     </Field>
@@ -166,8 +155,7 @@
                         label="Rating"
                         help="Please rate this paper. Please base your rating on the paper as it was submitted."
                         fieldset={true}
-                        state={$ratingState}
-                        message={choiceMessage}
+                        state={ratingState}
                     >
                         <Stack space="small">
                             <Choice
@@ -217,8 +205,7 @@
                         label="Explanation of Rating"
                         help="Explain your rating by discussing the strengths and weaknesses of the submission, contributions, and the potential impact of the paper. Include suggestions for improvement and publication alternatives, if appropriate. Be thorough. Be fair. Be courteous. Be constructive. Your evaluation will be forwarded to the authors during the rebuttal period."
                         id="explanation"
-                        state={$explanationState}
-                        message={textMessage(500, 1000)}
+                        state={explanationState}
                     >
                         <TextArea id="explanation" bind:value={$explanation} />
                     </Field>
@@ -230,8 +217,7 @@
                     label="Reviewer Expertise"
                     help="Please rate your expertise in the subject area of the paper:"
                     fieldset={true}
-                    state={$expertiseState}
-                    message={choiceMessage}
+                    state={expertiseState}
                 >
                     <Stack space="small">
                         <Choice
@@ -263,8 +249,7 @@
                     label="Private Comments (Optional)"
                     help="You may enter private comments for the papers committee here. These comments will not be sent to the paper author(s). Please do not mention any other papers that are currently in review, or the names of people associated with these papers."
                     id="comments"
-                    state={$commentsState}
-                    message={textMessage(500, 1000)}
+                    state={commentsState}
                 >
                     <TextArea id="comments" bind:value={$comments} />
                 </Field>

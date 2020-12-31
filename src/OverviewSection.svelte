@@ -1,12 +1,13 @@
 <script>
     import Stack from './Stack.svelte';
     import Button from './Button.svelte';
+    import FieldMessage from './FieldMessage.svelte';
     import { currentStep } from './stores.js';
-import { empty } from 'svelte/internal';
 
     export let label;
     export let step;
     export let value;
+    export let state;
 </script>
 
 <style>
@@ -17,8 +18,8 @@ import { empty } from 'svelte/internal';
         width: 100%;
     }
 
-    h2 {
-        margin-right: var(--spacing-unit);
+    .action {
+        margin-left: var(--spacing-unit);
     }
 
     .empty {
@@ -36,18 +37,15 @@ import { empty } from 'svelte/internal';
 <div class="section">
     <Stack space="xsmall">
         <div class="label">
-            <h2 class="gamma">{label}</h2>
-            <div class="hide-print">
+            <div>
+                <h2 class="gamma">{label}</h2>
+                <FieldMessage {state} message="Hello hello" />
+            </div>
+            <div class="action hide-print">
                 <Button style="secondary small" on:click={() => $currentStep = step}>Edit</Button>
             </div>
         </div>
 
-        <p>
-            {#if $value}
-                {$value}
-            {:else}
-                <span class="empty">This field is empty.</span>
-            {/if}
-        </p>
+        <p>{$value}</p>
     </Stack>
 </div>
