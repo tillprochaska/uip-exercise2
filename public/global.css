@@ -3,6 +3,7 @@
     --color-text: var(--gray-900);
     --color-text-light: var(--gray-600);
     --font-family: 'Fira Sans', system-ui;
+    --font-size-s: .85rem;
 
     --spacing-unit: calc(var(--line-height) * 1rem);
     --spacing-unit-xs: calc(.25 * var(--spacing-unit));

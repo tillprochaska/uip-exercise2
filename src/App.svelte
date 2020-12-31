@@ -1,15 +1,34 @@
 <script>
     import {
-        description,
         currentStep,
+
+        description,
+        descriptionState,
+
         resubmission,
-        clarityOfExposition,
-        qualityOfReferences,
+        resubmissionState,
+
+        expoClarity,
+        expoClarityState,
+
+        refQuality,
+        refQualityState,
+
         reproducibility,
-        explanationOfRating,
-        privateComments,
+        reproducibilityState,
+
+        rating,
+        ratingState,
+
+        explanation,
+        explanationState,
+
         expertise,
-        rating
+        expertiseState,
+
+        comments,
+        commentsState,
+
     } from './stores.js';
 
     import Field from './Field.svelte';
@@ -20,6 +39,12 @@
     import Step from './Step.svelte';
     import StepsNav from './StepsNav.svelte';
     import Overview from './Overview.svelte';
+
+    const textMessage = (min, max) => {
+        return `Please enter between ${min} and ${max} characters.`;
+    };
+
+    const choiceMessage = 'Please select one of the options.';
 </script>
 
 <style>
@@ -80,17 +105,21 @@
             <Step>
                 <Stack space="large">
                     <Field
-                    label="Description"
-                    help="Briefly describe the paper and its contribution to computer graphics and interactive techniques. Please give your assessment of the scope and magnitude of the paper's contribution."
-                    id="description"
+                        id="description"
+                        label="Description"
+                        help="Briefly describe the paper and its contribution to computer graphics and interactive techniques. Please give your assessment of the scope and magnitude of the paper's contribution."
+                        state={$descriptionState}
+                        message={textMessage(500, 1000)}
                     >
                         <TextArea id="description" bind:value={$description} />
                     </Field>
 
                     <Field
+                        id="resubmission"
                         label="Resubmission"
                         help="If the paper is a resubmission with reviewer continuity, please give your assessment of how the authors took into account comments from reviewers in the previous review cycle and improved their work. Note that the reviewing system gives you access to the former reviews and that the authors were instructed to upload a cover letter outlining the changes to their work as supplementary material."
-                        id="resubmission"
+                        state={$resubmissionState}
+                        message={textMessage(500, 1000)}
                     >
                         <TextArea id="resubmission" bind:value={$resubmission} />
                     </Field>
@@ -100,27 +129,33 @@
             <Step>
                 <Stack space="large">
                     <Field
+                        id="expo-clarity"
                         label="Clarity of Exposition"
                         help="Is the exposition clear? How could it be improved?"
-                        id="expo-clarity"
+                        state={$expoClarityState}
+                        message={textMessage(500, 1000)}
                     >
-                        <TextArea id="expo-clarity" bind:value={$clarityOfExposition} />
+                        <TextArea id="expo-clarity" bind:value={$expoClarity} />
                     </Field>
 
                     <Field
+                        id="ref-quality"
                         label="Quality of References"
                         help="Are the references adequate? List any additional references that are needed."
-                        id="ref-quality"
+                        state={$refQualityState}
+                        message={textMessage(500, 1000)}
                     >
-                        <TextArea id="ref-quality" bind:value={$qualityOfReferences}/>
+                        <TextArea id="ref-quality" bind:value={$refQuality} />
                     </Field>
 
                     <Field
                         label="Reproducibility"
                         help="Could the work be reproduced from the information in the paper? Are all important algorithmic or system details discussed adequately? Are the limitations and drawbacks of the work clear?"
                         id="reproducibility"
+                        state={$reproducibilityState}
+                        message={textMessage(500, 1000)}
                     >
-                        <TextArea id="reproducibility" bind:value={$reproducibility}/>
+                        <TextArea id="reproducibility" bind:value={$reproducibility} />
                     </Field>
                 </Stack>
             </Step>
@@ -131,6 +166,8 @@
                         label="Rating"
                         help="Please rate this paper. Please base your rating on the paper as it was submitted."
                         fieldset={true}
+                        state={$ratingState}
+                        message={choiceMessage}
                     >
                         <Stack space="small">
                             <Choice
@@ -180,8 +217,10 @@
                         label="Explanation of Rating"
                         help="Explain your rating by discussing the strengths and weaknesses of the submission, contributions, and the potential impact of the paper. Include suggestions for improvement and publication alternatives, if appropriate. Be thorough. Be fair. Be courteous. Be constructive. Your evaluation will be forwarded to the authors during the rebuttal period."
                         id="explanation"
+                        state={$explanationState}
+                        message={textMessage(500, 1000)}
                     >
-                        <TextArea id="explanation" bind:value={$explanationOfRating}/>
+                        <TextArea id="explanation" bind:value={$explanation} />
                     </Field>
                 </Stack>
             </Step>
@@ -191,11 +230,30 @@
                     label="Reviewer Expertise"
                     help="Please rate your expertise in the subject area of the paper:"
                     fieldset={true}
+                    state={$expertiseState}
+                    message={choiceMessage}
                 >
                     <Stack space="small">
-                        <Choice value={"beginner"} label="Beginner" id="Expertise" bind:group={$expertise} />
-                        <Choice value={"knowledgeable"} label="Knowledgeable" id="expertise" bind:group={$expertise} />
-                        <Choice value={"expert"} label="Expert" id="Expertise" bind:group={$expertise} />
+                        <Choice
+                            value={"beginner"}
+                            label="Beginner"
+                            id="Expertise"
+                            bind:group={$expertise}
+                        />
+
+                        <Choice
+                            value={"knowledgeable"}
+                            label="Knowledgeable"
+                            id="expertise"
+                            bind:group={$expertise}
+                        />
+
+                        <Choice
+                            value={"expert"}
+                            label="Expert"
+                            id="Expertise"
+                            bind:group={$expertise}
+                        />
                     </Stack>
                 </Field>
             </Step>
@@ -205,8 +263,10 @@
                     label="Private Comments (Optional)"
                     help="You may enter private comments for the papers committee here. These comments will not be sent to the paper author(s). Please do not mention any other papers that are currently in review, or the names of people associated with these papers."
                     id="comments"
+                    state={$commentsState}
+                    message={textMessage(500, 1000)}
                 >
-                    <TextArea id="comments" bind:value={$privateComments}/>
+                    <TextArea id="comments" bind:value={$comments} />
                 </Field>
             </Step>
 

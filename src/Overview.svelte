@@ -4,11 +4,11 @@
     import {
         description,
         resubmission,
-        clarityOfExposition,
-        qualityOfReferences,
+        expoClarity,
+        refQuality,
         reproducibility,
-        explanationOfRating,
-        privateComments,
+        explanation,
+        comments,
         expertise,
         rating
     } from './stores.js';
@@ -20,13 +20,13 @@
     const fields = [
         { label: 'Description', store: description, step: 1, },
         { label: 'Resubmission', store: resubmission, step: 1 },
-        { label: 'Clarity Of Exposition', store: clarityOfExposition, step: 2 },
-        { label: 'Quality of References', store: qualityOfReferences, step: 2 },
+        { label: 'Clarity Of Exposition', store: expoClarity, step: 2 },
+        { label: 'Quality of References', store: refQuality, step: 2 },
         { label: 'Reproducibility', store: reproducibility, step: 2 },
         { label: 'Rating', store: rating, step: 3 },
-        { label: 'Explanation of Rating', store: explanationOfRating, step: 3 },
+        { label: 'Explanation of Rating', store: explanation, step: 3 },
         { label: 'Reviewer Expertise', store: expertise, step: 4 },
-        { label: 'Private Comments', store: privateComments, step: 5 },
+        { label: 'Private Comments', store: comments, step: 5 },
     ];
 
     function generatePlaintext() {

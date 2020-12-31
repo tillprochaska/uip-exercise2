@@ -1,14 +1,56 @@
 <script>
-    import { currentStep } from './stores.js';
+    import { derived } from 'svelte/store';
 
-    const steps = [
-        'Hello Hello',
-        'Description & Resubmission',
-        'Quality',
-        'Rating',
-        'Reviewer Expertise',
-        'Private Comments',
-        'Summary',
+    import {
+        currentStep,
+        descriptionState,
+        resubmissionState,
+        expoClarityState,
+        refQualityState,
+        reproducibilityState,
+        ratingState,
+        explanationState,
+        expertiseState,
+        commentsState,
+
+        helloStepState,
+        descriptionStepState,
+        qualityStepState,
+        ratingStepState,
+        expertiseStepState,
+        commentsStepState,
+        summaryStepState,
+    } from './stores.js';
+
+    $: steps = [
+        {
+            title: 'Hello Hello',
+            state: $helloStepState,
+        },
+        {
+            title: 'Description & Resubmission',
+            state: $descriptionStepState,
+        },
+        {
+            title: 'Quality',
+            state: $qualityStepState,
+        },
+        {
+            title: 'Rating',
+            state: $ratingStepState,
+        },
+        {
+            title: 'Reviewer Expertise',
+            state: $expertiseStepState,
+        },
+        {
+            title: 'Private Comments',
+            state: $commentsStepState,
+        },
+        {
+            title: 'Summary',
+            state: $summaryStepState,
+        },
     ];
 </script>
 
@@ -16,6 +58,8 @@
     nav {
         --bullet-color: var(--gray-400);
         --bullet-color-completed: var(--blue-600);
+        --bullet-color-valid: var(--green-600);
+        --bullet-color-invalid: var(--red-600);
         --bullet-size: 1.5rem;
         --bullet-border-width: 2px;
     }
@@ -29,6 +73,10 @@
         position: relative;
         padding: var(--spacing-unit-xs) 0;
         font-size: .85rem;
+    }
+
+    .current {
+        font-weight: var(--font-weight-bold);
     }
 
     li + li {
@@ -58,7 +106,18 @@
         font-weight: var(--font-weight-bold);
     }
 
-    .completed a::before {
+    .visited a::before {
+        background-color: var(--bullet-color);
+        color: #fff;
+    }
+
+    .valid a::before {
+        background-color: var(--bullet-color-valid);
+        border-color: var(--bullet-color-valid);
+        color: #fff;
+    }
+
+    .current a::before {
         background-color: var(--bullet-color-completed);
         border-color: var(--bullet-color-completed);
         color: #fff;
@@ -80,8 +139,7 @@
         content: none;
     }
 
-    .completed::before {
-        border-right-color: var(--bullet-color-completed);
+    .visited::before {
         border-right-style: solid;
     }
 
@@ -93,10 +151,14 @@
 
 <nav>
     <ul>
-        {#each steps as step, index}
-            <li class:completed={index <= $currentStep}>
+        {#each steps as { title, state }, index}
+            <li class={`
+                ${state}
+                ${index <= $currentStep ? 'visited' : ''}
+                ${index == $currentStep ? 'current' : ''}
+            `}>
                 <a role="button" href="#" on:click={() => $currentStep = index}>
-                    {step}
+                    {title}
                 </a>
             </li>
         {/each}

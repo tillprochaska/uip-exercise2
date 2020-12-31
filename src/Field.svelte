@@ -1,8 +1,16 @@
 <script>
+    import Icon from 'svelte-awesome';
+    import { checkCircle, exclamationCircle } from 'svelte-awesome/icons';
+
     export let label;
     export let help;
     export let id;
     export let fieldset = false;
+
+    export let message = '';
+    export let state;
+
+    $: icon = state === 'valid' ? checkCircle : exclamationCircle;
 </script>
 
 <style>
@@ -12,6 +20,21 @@
 
     fieldset {
         border: none;
+    }
+
+    .message {
+        padding-top: var(--spacing-unit-xs);
+        justify-content: space-between;
+        font-size: var(--font-size-s);
+        color: var(--color-text-light);
+    }
+
+    .invalid:not(.empty) {
+        color: var(--red-600);
+    }
+
+    .valid:not(.empty) {
+        color: var(--green-600);
     }
 </style>
 
@@ -37,4 +60,9 @@
             <slot />
         </fieldset>
     {/if}
+
+    <div class="message {state}">
+        <Icon data={icon} />
+        {message}
+    </div>
 </div>

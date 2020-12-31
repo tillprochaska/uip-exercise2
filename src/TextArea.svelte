@@ -1,21 +1,17 @@
 <script>
     import autoresize from './autoresize.js';
-    import Icon from 'svelte-awesome';
-    import { checkCircle, exclamationCircle } from 'svelte-awesome/icons';
 
     export let id;
     export let value = '';
 
-    export let minChars = 500;
-    export let maxChars = 1000;
-
     $: chars = value.length;
-    $: inBounds = (chars >= minChars && chars <= maxChars);
-    $: messageClass = inBounds ? 'success' : 'error';
-    $: icon = inBounds ? checkCircle : exclamationCircle;
 </script>
 
 <style>
+    div {
+        position: relative;
+    }
+
     textarea {
         display: block;
         width: 100%;
@@ -40,21 +36,13 @@
         border-width: var(--input-border-width-focus);
     }
 
-    .stats {
-        display: flex;
-        width: 100%;
-        padding-top: var(--spacing-unit-xs);
-        justify-content: space-between;
-        font-size: .85rem;
+    .counter {
+        position: absolute;
+        bottom: calc(-1 * var(--spacing-unit-xs));
+        right: 0;
+        transform: translateY(100%);
         color: var(--color-text-light);
-    }
-
-    .error:not(.empty) {
-        color: var(--red-600);
-    }
-
-    .success:not(.empty) {
-        color: var(--green-600);
+        font-size: var(--font-size-s);
     }
 </style>
 
@@ -67,11 +55,5 @@
         bind:value
     ></textarea>
 
-    <div class="stats">
-        <span class="message {messageClass}" class:empty={chars == 0}>
-            <Icon data={icon} />
-            Enter between {minChars} and {maxChars} characters.
-        </span>
-        <span class="count">{chars}</span>
-    </div>
+    <span class="counter">{chars}</span>
 </div>
