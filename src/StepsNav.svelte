@@ -27,9 +27,6 @@
 
     li {
         position: relative;
-        display: flex;
-        align-items: center;
-        gap: var(--spacing-unit-s);
         font-size: .85rem;
     }
 
@@ -37,7 +34,13 @@
         margin-top: var(--spacing-unit-l);
     }
 
-    li::before {
+    a {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-unit-s);
+    }
+
+    a::before {
         counter-increment: step;
         content: counter(step);
 
@@ -54,13 +57,13 @@
         font-weight: var(--font-weight-bold);
     }
 
-    .completed::before {
+    .completed a::before {
         background-color: var(--bullet-color-completed);
         border-color: var(--bullet-color-completed);
         color: #fff;
     }
 
-    li::after {
+    li::before {
         content: '';
 
         position: absolute;
@@ -72,11 +75,11 @@
         border-right: var(--bullet-border-width) dashed var(--bullet-color);
     }
 
-    li:first-child::after {
+    li:first-child::before {
         content: none;
     }
 
-    .completed::after {
+    .completed::before {
         border-right-color: var(--bullet-color-completed);
         border-right-style: solid;
     }
