@@ -45,6 +45,9 @@
         display: flex;
         align-items: center;
         gap: var(--spacing-unit-s);
+
+        text-decoration: none;
+        color: inherit;
     }
 
     .bullet {
@@ -96,11 +99,6 @@
 
     .visited::before {
         border-right-style: solid;
-    }
-
-    a {
-        color: inherit;
-        text-decoration: none;
     }
 </style>
 
