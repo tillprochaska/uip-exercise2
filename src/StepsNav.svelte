@@ -16,6 +16,8 @@
     nav {
         --bullet-color: var(--gray-600);
         --bullet-color-completed: var(--blue-600);
+        --bullet-size: 1.5rem;
+        --bullet-border-width: 2px;
     }
 
     ul {
@@ -24,6 +26,7 @@
     }
 
     li {
+        position: relative;
         display: flex;
         align-items: center;
         gap: var(--spacing-unit-s);
@@ -39,13 +42,13 @@
         content: counter(step);
 
         display: block;
-        width: 1.5rem;
-        height: 1.5rem;
+        width: var(--bullet-size);
+        height: var(--bullet-size);
         flex-shrink: 0;
         text-align: center;
         line-height: 1.5rem;
 
-        border: 2px solid var(--bullet-color);
+        border: var(--bullet-border-width) solid var(--bullet-color);
         border-radius: 50%;
         font-size: .9em;
         font-weight: var(--font-weight-bold);
@@ -55,6 +58,26 @@
         background-color: var(--bullet-color-completed);
         border-color: var(--bullet-color-completed);
         color: #fff;
+    }
+
+    li::after {
+        content: '';
+
+        position: absolute;
+        top: calc(-1 * var(--spacing-unit));
+        left: calc(.5 * var(--bullet-size) + .5 * var(--bullet-border-width));
+
+        width: var(--bullet-border-width);
+        height: var(--spacing-unit);
+        background-color: var(--bullet-color);
+    }
+
+    li:first-child::after {
+        content: none;
+    }
+
+    .completed::after {
+        background-color: var(--bullet-color-completed);
     }
 
     a {
