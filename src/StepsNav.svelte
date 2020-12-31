@@ -14,7 +14,7 @@
 
 <style>
     nav {
-        --bullet-color: var(--gray-600);
+        --bullet-color: var(--gray-400);
         --bullet-color-completed: var(--blue-600);
         --bullet-size: 1.5rem;
         --bullet-border-width: 2px;
@@ -34,7 +34,7 @@
     }
 
     li + li {
-        margin-top: var(--spacing-unit);
+        margin-top: var(--spacing-unit-l);
     }
 
     li::before {
@@ -64,12 +64,12 @@
         content: '';
 
         position: absolute;
-        top: calc(-1 * var(--spacing-unit));
-        left: calc(.5 * var(--bullet-size) + .5 * var(--bullet-border-width));
+        top: calc(-.875 * var(--spacing-unit-l));
+        left: calc(.5 * var(--bullet-size) - .5 * var(--bullet-border-width));
 
         width: var(--bullet-border-width);
-        height: var(--spacing-unit);
-        background-color: var(--bullet-color);
+        height: calc(.75 * var(--spacing-unit-l));
+        border-right: var(--bullet-border-width) dashed var(--bullet-color);
     }
 
     li:first-child::after {
@@ -77,7 +77,8 @@
     }
 
     .completed::after {
-        background-color: var(--bullet-color-completed);
+        border-right-color: var(--bullet-color-completed);
+        border-right-style: solid;
     }
 
     a {
