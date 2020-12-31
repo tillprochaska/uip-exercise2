@@ -91,7 +91,12 @@ body {
 
 .gamma {
     font-weight: var(--font-weight-bold);
-    font-size: 1rem; 
+    font-size: 1rem;
+}
+
+/* TODO: Use cleaner solution */
+svg {
+    vertical-align: -10%;
 }
 
 @media print {

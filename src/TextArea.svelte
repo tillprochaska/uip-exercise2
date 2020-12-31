@@ -1,33 +1,18 @@
 <script>
+    import autoresize from './autoresize.js';
+    import Icon from 'svelte-awesome';
+    import { checkCircle, exclamationCircle } from 'svelte-awesome/icons';
+
     export let id;
-    export let value = "";
+    export let value = '';
 
+    export let minChars = 500;
+    export let maxChars = 1000;
 
-    function autoresize(node) {
-        // `offsetHeight` includes the top and bottom borders
-        const offset = node.offsetHeight - node.clientHeight;
-
-        function resize() {
-            // Briefly reset the height to `auto` in order to
-            // to handle cases where textarea content got smaller
-            node.style.height = 'auto';
-
-            // Add the height of top and bottom borders as it's
-            // not included in `scrollHeight`
-            node.style.height = offset + node.scrollHeight + 'px';
-        }
-
-        // Call the handler once the textarea is rendered initially
-        resize();
-        
-        node.addEventListener('input', resize);
-
-        return {
-            destroy() {
-                node.removeEventListener('input', resize)
-            },
-        };
-    }
+    $: chars = value.length;
+    $: inBounds = (chars >= minChars && chars <= maxChars);
+    $: messageClass = inBounds ? 'success' : 'error';
+    $: icon = inBounds ? checkCircle : exclamationCircle;
 </script>
 
 <style>
@@ -54,12 +39,39 @@
         border-color: var(--input-border-color-focus);
         border-width: var(--input-border-width-focus);
     }
+
+    .stats {
+        display: flex;
+        width: 100%;
+        padding-top: var(--spacing-unit-xs);
+        justify-content: space-between;
+        font-size: .85rem;
+        color: var(--color-text-light);
+    }
+
+    .error:not(.empty) {
+        color: var(--red-600);
+    }
+
+    .success:not(.empty) {
+        color: var(--green-600);
+    }
 </style>
 
-<textarea
-    {id}
-    name={id}
-    aria-describedby="{id}-help"
-    use:autoresize
-    bind:value
-></textarea>
+<div>
+    <textarea
+        {id}
+        name={id}
+        aria-describedby="{id}-help"
+        use:autoresize
+        bind:value
+    ></textarea>
+
+    <div class="stats">
+        <span class="message {messageClass}" class:empty={chars == 0}>
+            <Icon data={icon} />
+            Enter between {minChars} and {maxChars} characters.
+        </span>
+        <span class="count">{chars}</span>
+    </div>
+</div>
