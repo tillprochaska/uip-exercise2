@@ -37,6 +37,19 @@
         font-size: .85rem;
     }
 
+    .title {
+        color: var(--color-text-light);
+    }
+
+    a:hover .title,
+    .current .title {
+        color: var(--color-text);
+    }
+
+    a:hover .title {
+        text-decoration: underline var(--gray-300) 2px;
+    }
+
     .current {
         font-weight: var(--font-weight-bold);
     }
@@ -47,7 +60,6 @@
         gap: var(--spacing-unit-s);
 
         text-decoration: none;
-        color: inherit;
     }
 
     .bullet {
@@ -112,6 +124,6 @@
             {/if}
         </div>
 
-        {title}
+        <div class="title">{title}</div>
     </a>
 </li>
