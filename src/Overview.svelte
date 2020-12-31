@@ -44,7 +44,7 @@
         {
             label: 'Resubmission',
             value: resubmission,
-            state: descriptionState,
+            state: resubmissionState,
             step: 1
         },
         {
