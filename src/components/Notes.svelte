@@ -95,47 +95,69 @@
     textarea:focus {
         outline: none;
     }
+
+    .empty-state {
+        padding: var(--spacing-unit-l);
+        background: var(--gray-100);
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    .empty-state p {
+        max-width: 20rem;
+        margin: auto;
+        font-weight: var(--font-weight-bold);
+    }
 </style>
 
-<Stack space="small">
-    <table>
-        <thead>
-            <tr>
-                <th>Note</th>
-                <th>Reference</th>
-                <th></th>
-            </tr>
-        </thead>
-
-        <tbody>
-            {#each value as {note, reference}, index}
+{#if value.length <= 0}
+    <div class="empty-state">
+        <Stack>
+            <p>Add notes to your review to give authors feedback on specific parts of their submission.</p>
+            <Button on:click={addNote}>Add note</Button>
+        </Stack>
+    </div>
+{:else}
+    <Stack space="small">
+        <table>
+            <thead>
                 <tr>
-                    <td>
-                        <textarea 
-                            id={`note-${index}`}
-                            placeholder="e.g. missing reference, spelling mistake, …"
-                            bind:value={note}
-                            use:focus
-                            use:autoresize
-                        />
-                    </td>
-                    <td>
-                        <textarea 
-                            id={`reference-${index}`}
-                            placeholder="e.g. page 4, paragraph 3"
-                            bind:value={reference}
-                            use:autoresize
-                        />
-                    </td>
-                    <td class="actions">
-                        <Button style="plain small danger" on:click={() => removeNote(index)}>
-                            <Icon data={trash} scale={1.25} label="Remove note" />
-                        </Button>
-                    </td>
+                    <th>Note</th>
+                    <th>Reference</th>
+                    <th></th>
                 </tr>
-            {/each}
-        </tbody>
-    </table>
-        
-    <Button style="primary small" on:click={addNote}>Add note</Button>
-</Stack>
+            </thead>
+
+            <tbody>
+                {#each value as {note, reference}, index}
+                    <tr>
+                        <td>
+                            <textarea 
+                                id={`note-${index}`}
+                                placeholder="e.g. missing reference, spelling mistake, …"
+                                bind:value={note}
+                                use:focus
+                                use:autoresize
+                            />
+                        </td>
+                        <td>
+                            <textarea 
+                                id={`reference-${index}`}
+                                placeholder="e.g. page 4, paragraph 3"
+                                bind:value={reference}
+                                use:autoresize
+                            />
+                        </td>
+                        <td class="actions">
+                            <Button style="plain small danger" on:click={() => removeNote(index)}>
+                                <Icon data={trash} scale={1.25} label="Remove note" />
+                            </Button>
+                        </td>
+                    </tr>
+                {/each}
+            </tbody>
+        </table>
+            
+        <Button style="primary small" on:click={addNote}>Add note</Button>
+    </Stack>
+{/if}
