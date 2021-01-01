@@ -8,12 +8,14 @@
     export let title;
     export let state;
 
-    $: isValid = $state.type === 'valid';
-    $: isVisited = index <= $currentStep;
+    $: isVisited = index < $currentStep;
     $: isCurrent = index === $currentStep;
+    $: isValid = state && $state.type === 'valid' || !state && isVisited;
+
+    $: style = state ? $state.type : 'optional';
 
     $: classNames = [
-        $state.type,
+        style,
         isVisited ? 'visited' : '',
         isCurrent ? 'current' : '',
     ].join(' ');
@@ -58,6 +60,7 @@
         display: flex;
         align-items: center;
         gap: var(--spacing-unit-s);
+        color: inherit;
 
         text-decoration: none;
     }
@@ -81,7 +84,8 @@
         color: #fff;
     }
 
-    .valid .bullet {
+    .valid .bullet,
+    .optional.visited .bullet {
         background-color: var(--bullet-color-valid);
         border-color: var(--bullet-color-valid);
         color: #fff;

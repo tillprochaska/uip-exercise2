@@ -72,8 +72,6 @@ export const comments = writable('comments', '');
 
 export const notes = writable('notes', []);
 
-export const helloStepState = derived([], stepState);
-
 export const descriptionStepState = derived([
     descriptionState,
     resubmissionState,
@@ -92,11 +90,4 @@ export const ratingStepState = derived([
 
 export const expertiseStepState = derived([
     expertiseState,
-], stepState);
-
-export const summaryStepState = derived([
-    descriptionStepState,
-    qualityStepState,
-    ratingStepState,
-    expertiseStepState,
 ], stepState);

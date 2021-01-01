@@ -1,23 +1,9 @@
 <script>
     import {
-        currentStep,
-        descriptionState,
-        resubmissionState,
-        expoClarityState,
-        refQualityState,
-        reproducibilityState,
-        ratingState,
-        explanationState,
-        expertiseState,
-        commentsState,
-
-        helloStepState,
         descriptionStepState,
         qualityStepState,
         ratingStepState,
         expertiseStepState,
-        commentsStepState,
-        summaryStepState,
     } from '../stores.js';
 
     import StepsNavItem from './StepsNavItem.svelte';
@@ -25,7 +11,7 @@
     const steps = [
         {
             title: 'Hello Hello',
-            state: helloStepState,
+            state: null,
         },
         {
             title: 'Description & Resubmission',
@@ -44,12 +30,16 @@
             state: expertiseStepState,
         },
         {
+            title: 'Additional Notes',
+            state: null,
+        },
+        {
             title: 'Private Comments',
-            state: commentsStepState,
+            state: null,
         },
         {
             title: 'Summary',
-            state: summaryStepState,
+            state: null,
         },
     ];
 </script>

@@ -21,7 +21,8 @@
         explanationState,
 
         comments,
-        commentsState,
+
+        notes,
 
         expertise,
         expertiseState,
@@ -62,7 +63,7 @@
         {
             label: 'Reproducibility',
             value: reproducibility,
-            state: refQualityState,
+            state: reproducibilityState,
             step: 2
         },
         {

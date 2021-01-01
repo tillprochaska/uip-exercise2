@@ -27,7 +27,6 @@
         expertiseState,
 
         comments,
-        commentsState,
 
         notes,
 
