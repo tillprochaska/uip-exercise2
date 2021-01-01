@@ -33,6 +33,10 @@
             break-inside: avoid;
         }
     }
+
+    ul {
+        padding-left: 1em;
+    }
 </style>
 
 <div class="section">
@@ -40,13 +44,27 @@
         <div class="label">
             <div>
                 <h2 class="gamma">{label}</h2>
-                <FieldMessage {state} message="Hello hello" />
+
+                {#if state}
+                    <FieldMessage {state} message="Hello hello" />
+                {/if}
             </div>
             <div class="action hide-print">
                 <Button style="secondary small" on:click={() => $currentStep = step}>Edit</Button>
             </div>
         </div>
 
-        <p>{$value}</p>
+        {#if Array.isArray($value)}
+            <ul>
+                {#each $value as {note, reference}}
+                    <li>
+                        {note}
+                        [{reference}]
+                    </li>
+                {/each}
+            </ul>
+        {:else}
+            <p>{$value}</p>
+        {/if}
     </Stack>
 </div>

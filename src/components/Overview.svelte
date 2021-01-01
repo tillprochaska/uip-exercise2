@@ -85,10 +85,14 @@
             step: 4
         },
         {
+            label: 'Additional Notes',
+            value: notes,
+            step: 5,
+        },
+        {
             label: 'Private Comments',
             value: comments,
-            state: expertiseState,
-            step: 5
+            step: 6,
         },
     ];
 
