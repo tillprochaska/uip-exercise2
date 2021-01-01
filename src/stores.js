@@ -69,7 +69,6 @@ export const expertise = writable('expertise', '');
 export const expertiseState = derived(expertise, choiceValidator);
 
 export const comments = writable('comments', '');
-export const commentsState = derived(comments, textValidator(500, 1000));
 
 export const notes = writable('notes', []);
 
@@ -95,14 +94,9 @@ export const expertiseStepState = derived([
     expertiseState,
 ], stepState);
 
-export const commentsStepState = derived([
-    commentsState,
-], stepState);
-
 export const summaryStepState = derived([
     descriptionStepState,
     qualityStepState,
     ratingStepState,
     expertiseStepState,
-    commentsStepState,
 ], stepState);

@@ -44,6 +44,8 @@
             </fieldset>
         {/if}
 
-        <FieldMessage {state} />
+        {#if $state}
+            <FieldMessage {state} />
+        {/if}
     </Stack>
 </div>

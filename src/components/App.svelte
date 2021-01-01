@@ -252,7 +252,6 @@
                     label="Additional Comments (Optional)"
                     help=""
                     id="notes"
-                    state={commentsState}
                 >
                     <Notes bind:value={$notes} />
                 </Field>
@@ -263,7 +262,6 @@
                     label="Private Comments (Optional)"
                     help="You may enter private comments for the papers committee here. These comments will not be sent to the paper author(s). Please do not mention any other papers that are currently in review, or the names of people associated with these papers."
                     id="comments"
-                    state={commentsState}
                 >
                     <TextArea id="comments" bind:value={$comments} />
                 </Field>
