@@ -71,6 +71,8 @@ export const expertiseState = derived(expertise, choiceValidator);
 export const comments = writable('comments', '');
 export const commentsState = derived(comments, textValidator(500, 1000));
 
+export const notes = writable('notes', []);
+
 export const helloStepState = derived([], stepState);
 
 export const descriptionStepState = derived([

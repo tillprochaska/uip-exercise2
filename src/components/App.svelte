@@ -29,6 +29,8 @@
         comments,
         commentsState,
 
+        notes,
+
     } from '../stores.js';
 
     import Field from './Field.svelte';
@@ -252,7 +254,7 @@
                     id="notes"
                     state={commentsState}
                 >
-                    <Notes />
+                    <Notes bind:value={$notes} />
                 </Field>
             </Step>
 

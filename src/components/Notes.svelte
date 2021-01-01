@@ -7,7 +7,7 @@
 
     import autoresize from '../actions/autoresize.js';
 
-    let value = [];
+    export let value;
 
     function addNote() {
         value = [...value, {
