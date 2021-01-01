@@ -34,6 +34,7 @@
     import Field from './Field.svelte';
     import TextArea from './TextArea.svelte';
     import Choice from './Choice.svelte';
+    import Notes from './Notes.svelte';
     import Stack from './Stack.svelte';
     import Steps from './Steps.svelte';
     import Step from './Step.svelte';
@@ -241,6 +242,17 @@
                             bind:group={$expertise}
                         />
                     </Stack>
+                </Field>
+            </Step>
+
+            <Step>
+                <Field
+                    label="Additional Comments (Optional)"
+                    help=""
+                    id="notes"
+                    state={commentsState}
+                >
+                    <Notes />
                 </Field>
             </Step>
 

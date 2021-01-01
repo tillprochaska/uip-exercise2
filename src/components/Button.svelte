@@ -15,6 +15,7 @@
         box-shadow: var(--input-shadow-focus)
     }
 
+    .plain,
     .primary,
     .secondary {
         padding: var(--spacing-unit-s) var(--spacing-unit);
@@ -37,6 +38,20 @@
     .small {
         padding: var(--spacing-unit-xs) var(--spacing-unit-s);
         font-size: .85rem;
+    }
+
+    .plain {
+        background-color: transparent;
+        color: var(--color-text);
+    }
+
+    .danger {
+        color: var(--red-600);
+    }
+
+    .danger:hover {
+        background-color: var(--red-600);
+        color: #fff;
     }
 </style>
 
