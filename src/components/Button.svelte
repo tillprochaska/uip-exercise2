@@ -49,7 +49,8 @@
         color: var(--red-600);
     }
 
-    .danger:hover {
+    .danger:hover,
+    .danger:focus {
         background-color: var(--red-600);
         color: #fff;
     }
