@@ -5,6 +5,7 @@
     import Step from './Step.svelte';
     import StepsNav from './StepsNav.svelte';
     import Form from './Form.svelte';
+    import Summary from './Summary.svelte';
 
     import { setContext, getContext } from 'svelte';
     import { currentStep } from '../stores.js';
@@ -31,6 +32,10 @@
 
                 {#if step.type === 'form'}
                     <Form fields={step.fields} />
+                {/if}
+
+                {#if step.type === 'summary'}
+                    <Summary />
                 {/if}
             </Step>
         {/each}

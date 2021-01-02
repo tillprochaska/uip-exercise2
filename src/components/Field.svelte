@@ -44,7 +44,7 @@
         {/if}
 
         {#if validation}
-            <FieldMessage type={validation.type} message={validation.message} />
+            <FieldMessage {...validation} />
         {/if}
     </Stack>
 </div>

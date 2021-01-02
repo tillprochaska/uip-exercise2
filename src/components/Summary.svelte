@@ -1,29 +1,16 @@
 <script>
-    import formatNote from '../lib/formatNote.js';
+    import { getContext } from 'svelte';
+    import { get } from 'svelte/store';
+    import { getFields } from '../lib/schema.js';
+    import { fieldsAsPlaintext } from '../lib/formatters.js';
 
     import Stack from './Stack.svelte';
     import Button from './Button.svelte';
     import SummarySection from './SummarySection.svelte';
 
-    const fields = [];
-
-    function generatePlaintext() {
-        return fields
-            .map(({ label, value }) => {
-                if(Array.isArray(value)) {
-                    value = value
-                        .map(formatNote)
-                        .map(item => `* ${item}`)
-                        .join('\n');
-                }
-
-                return { label, value };
-            })
-            .map(({ label, value }) => {
-                return `${label.toUpperCase()}\n${value}`
-            })
-            .join('\n\n');
-    }
+    const schema = getContext('schema');
+    const fields = getFields(schema);
+    const plaintext = fieldsAsPlaintext(fields);
 
     function print() {
         window.print();
@@ -31,14 +18,14 @@
 
     function email() {
         const subject = 'Review';
-        const body = encodeURIComponent(generatePlaintext());
+        const body = encodeURIComponent(plaintext);
         const url = `mailto:reviews@example.org?subject=${subject}&body=${body}`;
 
         window.open(url);
     }
 
     function download() {
-        const data = encodeURIComponent(generatePlaintext());
+        const data = encodeURIComponent(plaintext);
         const url = `data:text/plain,${data}`;
 
         const tag = document.createElement('a');
@@ -59,6 +46,19 @@
         <Button style="primary small" on:click={email}>Email</Button>
         <Button style="primary small" on:click={download}>Download</Button>
     </div>
+
+    {#each getContext('schema').steps as step, index}
+        {#if step.type === 'form'}
+            {#each step.fields as field}
+                <SummarySection
+                    step={index}
+                    value={field.store}
+                    validation={field.validation}
+                    label={field.label}
+                />
+            {/each}
+        {/if}
+    {/each}
 
     <div class="hide-print">
         <Button style="primary small" on:click={print}>Print</Button>

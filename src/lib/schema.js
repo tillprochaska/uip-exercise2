@@ -14,6 +14,18 @@ export function initSchema(schema) {
     };
 }
 
+export function getFields(schema) {
+    return schema.steps
+        .map(step => {
+            if(!step.fields) {
+                return [];
+            }
+
+            return step.fields;
+        })
+        .flat();
+}
+
 function initStep(schemaId, step) {
     if(step.type !== 'form') {
         return step;

@@ -162,7 +162,7 @@ steps:
             -
                 type: notes
                 id: notes
-                label: Additional notes (optional)
+                label: Additional Notes
                 validation:
                     type: optional
     -
@@ -172,7 +172,7 @@ steps:
             -
                 type: textarea
                 id: comments
-                label: Private comments (optional)
+                label: Private Comments
                 help: Lorem Ipsum
                 validation:
                     type: optional

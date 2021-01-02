@@ -4,12 +4,12 @@
     import FieldMessage from './FieldMessage.svelte';
 
     import { currentStep } from '../stores.js';
-    import formatNote from '../lib/formatNote.js';
+    import { formatNote } from '../lib/formatters.js';
 
     export let label;
     export let step;
     export let value;
-    export let state;
+    export let validation;
 </script>
 
 <style>
@@ -46,8 +46,8 @@
             <div>
                 <h2 class="gamma">{label}</h2>
 
-                {#if state}
-                    <FieldMessage {state} message="Hello hello" />
+                {#if $validation}
+                    <FieldMessage {...$validation} />
                 {/if}
             </div>
             <div class="action hide-print">
@@ -55,14 +55,14 @@
             </div>
         </div>
 
-        {#if Array.isArray(value)}
+        {#if Array.isArray($value)}
             <ul>
-                {#each value as note}
+                {#each $value as note}
                     <li>{formatNote(note)}</li>
                 {/each}
             </ul>
         {:else}
-            <p>{value}</p>
+            <p>{$value}</p>
         {/if}
     </Stack>
 </div>
