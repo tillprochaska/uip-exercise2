@@ -20,7 +20,6 @@ steps:
                 help: >
                     Briefly describe the paper and its contribution to computer graphics and interactive techniques.
                     Please give your assessment of the scope and magnitude of the paper''s contribution.
-                default: ''
                 validation:
                     type: chars
                     min: 500
@@ -35,7 +34,6 @@ steps:
                     improved their work. Note that the reviewing system gives you access to the former reviews
                     and that the authors were instructed to upload a cover letter outlining the changes to
                     their work as supplementary material.
-                default: ''
                 validation:
                     type: chars
                     min: 500
@@ -43,22 +41,105 @@ steps:
     -
         type: form
         title: Submission Quality
-        fields: []
+        fields:
+            -
+                type: textarea
+                id: exposition
+                label: Clarity of Exposition
+                help: Is the exposition clear? How could it be improved?
+                validation:
+                    type: chars
+                    min: 500
+                    max: 1000
+            -
+                type: textarea
+                id: references
+                label: Quality of References
+                help: Are the references adequate? List any additional references that are needed.
+                validation:
+                    type: chars
+                    min: 500
+                    max: 1000
+            -
+                type: textarea
+                id: reproducibility
+                label: Reproducibility
+                help: >
+                    Could the work be reproduced from the information in the paper?
+                    Are all important algorithmic or system details discussed adequately?
+                    Are the limitations and drawbacks of the work clear?
+                validation:
+                    type: chars
+                    min: 500
+                    max: 1000
     -
         type: form
         title: Rating
-        fields: []
-    -
-        type: form
-        title: Reviewer Expertise
         fields:
             -
                 type: choices
                 id: rating
                 label: Rating
                 help: >
+                    Please rate this paper.
+                    Please base your rating on the paper as it was submitted.
+                choices:
+                    -
+                        id: definitely-reject
+                        value: Definitely reject
+                        label: Definitely reject
+                        caption: I would protest strongly if it's accepted.
+                        theme: strong-positive
+                    -
+                        id: probably-reject
+                        value: Probably reject
+                        label: Probably reject
+                        caption: I would argue against this paper.
+                        theme: positive
+                    -
+                        id: possibly-accept
+                        value: Possibly accept
+                        label: Possibly accept
+                        caption: But only if others champion it.
+                        theme: neutral
+                    -
+                        id: probably-accept
+                        value: Probably accept
+                        label: Probably accept
+                        caption: I would argue for this paper.
+                        theme: negative
+                    -
+                        id: definitely-accept
+                        value: Definitely accept
+                        label: Definitely accept
+                        caption: I would protest strongly if it's accepted.
+                        theme: strong-negative
+                validation:
+                    type: choices
+            -
+                type: textarea
+                id: explanation
+                label: Explanation of Rating
+                help: >
+                    Explain your rating by discussing the strengths and weaknesses of the submission,
+                    contributions, and the potential impact of the paper. Include suggestions for
+                    improvement and publication alternatives, if appropriate. Be thorough. Be fair.
+                    Be courteous. Be constructive. Your evaluation will be forwarded to the authors
+                    during the rebuttal period.
+                validation:
+                    type: chars
+                    min: 500
+                    max: 1000
+    -
+        type: form
+        title: Reviewer Expertise
+        fields:
+            -
+                type: choices
+                id: expertise
+                label: Reviewer Expertise
+                help: >
                     Please rate your expertise in the subject area of the paper:
-                default: ''
                 choices:
                     -
                         id: beginner
@@ -77,7 +158,13 @@ steps:
     -
         type: form
         title: Additional Notes
-        fields: []
+        fields:
+            -
+                type: notes
+                id: notes
+                label: Additional notes (optional)
+                validation:
+                    type: optional
     -
         type: form
         title: Private Comments
@@ -87,7 +174,6 @@ steps:
                 id: comments
                 label: Private comments (optional)
                 help: Lorem Ipsum
-                default: ''
                 validation:
                     type: optional
     -

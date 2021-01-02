@@ -3,7 +3,7 @@
     import Stack from './Stack.svelte';
 
     export let label;
-    export let help;
+    export let help = '';
     export let id;
     export let fieldset = false;
     export let validation = null;

@@ -13,7 +13,8 @@
             id={`${id}-${choice.id}`}
             value={choice.value}
             label={choice.label}
-            description={choice.description}
+            caption={choice.caption}
+            theme={choice.theme}
             bind:group={value}
         />
     {/each}

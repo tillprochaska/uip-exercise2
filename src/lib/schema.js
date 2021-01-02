@@ -43,7 +43,7 @@ function initFieldStore(schemaId, field) {
         defaultValue = [];
     }
 
-    return writable(`${schemaId}-${field.id}`, field.default);
+    return writable(`${schemaId}-${field.id}`, defaultValue);
 };
 
 function initFieldValidation(schemaId, field) {
