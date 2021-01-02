@@ -33,7 +33,7 @@
 
     import Stack from './Stack.svelte';
     import Button from './Button.svelte';
-    import OverviewSection from './OverviewSection.svelte';
+    import SummarySection from './SummarySection.svelte';
 
     const fields = [
         {
@@ -98,7 +98,20 @@
 
     function generatePlaintext() {
         return fields
-            .map(({ label, value }) => `${label.toUpperCase()}\n${get(value)}`)
+            .map(({ label, value }) => {
+
+                if(Array.isArray(value)) {
+                    debugger;
+                    value = value
+                        .map(item => `- ${value.note} [${value.reference}]`)
+                        .join('\n');
+                }
+
+                return { label, value }
+            })
+            .map(({ label, value }) => {
+                return `${label.toUpperCase()}\n${get(value)}`
+            })
             .join('\n\n');
     }
 
@@ -138,7 +151,7 @@
     </div>
 
     {#each fields as { label, value, state, step }}
-        <OverviewSection
+        <SummarySection
             label={label}
             step={step}
             {value}

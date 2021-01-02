@@ -40,7 +40,7 @@
     import Steps from './Steps.svelte';
     import Step from './Step.svelte';
     import StepsNav from './StepsNav.svelte';
-    import Overview from './Overview.svelte';
+    import Summary from './Summary.svelte';
 </script>
 
 <style>
