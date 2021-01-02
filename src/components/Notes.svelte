@@ -118,8 +118,8 @@
 <div class="notes">
     {#if value.length <= 0}
         <div class="empty-state">
-            <Stack>
-                <p>Add notes to your review to give authors feedback on specific parts of their submission.</p>
+            <Stack space="small">
+                <p>Add notes to your review to give authors feedback on specific parts of their submission.</p>
                 <Button on:click={addNote}>Add note</Button>
             </Stack>
         </div>
