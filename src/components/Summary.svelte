@@ -1,100 +1,11 @@
 <script>
     import formatNote from '../lib/formatNote.js';
 
-    import {
-        description,
-        descriptionState,
-
-        resubmission,
-        resubmissionState,
-
-        expoClarity,
-        expoClarityState,
-
-        refQuality,
-        refQualityState,
-
-        reproducibility,
-        reproducibilityState,
-
-        explanation,
-        explanationState,
-
-        comments,
-
-        notes,
-
-        expertise,
-        expertiseState,
-
-        rating,
-        ratingState,
-    } from '../stores.js';
-
     import Stack from './Stack.svelte';
     import Button from './Button.svelte';
     import SummarySection from './SummarySection.svelte';
 
-    const fields = [
-        {
-            label: 'Description',
-            value: $description,
-            state: descriptionState,
-            step: 1,
-        },
-        {
-            label: 'Resubmission',
-            value: $resubmission,
-            state: resubmissionState,
-            step: 1
-        },
-        {
-            label: 'Clarity Of Exposition',
-            value: $expoClarity,
-            state: expoClarityState,
-            step: 2
-        },
-        {
-            label: 'Quality of References',
-            value: $refQuality,
-            state: refQualityState,
-            step: 2
-        },
-        {
-            label: 'Reproducibility',
-            value: $reproducibility,
-            state: reproducibilityState,
-            step: 2
-        },
-        {
-            label: 'Rating',
-            value: $rating,
-            state: ratingState,
-            step: 3
-        },
-        {
-            label: 'Explanation of Rating',
-            value: $explanation,
-            state: explanationState,
-            step: 3
-        },
-        {
-            label: 'Reviewer Expertise',
-            value: $expertise,
-            state: expertiseState,
-            step: 4
-        },
-        {
-            label: 'Additional Notes',
-            value: $notes,
-            step: 5,
-        },
-        {
-            label: 'Private Comments',
-            value: $comments,
-            step: 6,
-        },
-    ];
+    const fields = [];
 
     function generatePlaintext() {
         return fields
@@ -148,15 +59,6 @@
         <Button style="primary small" on:click={email}>Email</Button>
         <Button style="primary small" on:click={download}>Download</Button>
     </div>
-
-    {#each fields as { label, value, state, step }}
-        <SummarySection
-            label={label}
-            step={step}
-            {value}
-            {state}
-        />
-    {/each}
 
     <div class="hide-print">
         <Button style="primary small" on:click={print}>Print</Button>

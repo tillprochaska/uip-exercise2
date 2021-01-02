@@ -6,8 +6,7 @@
     export let help;
     export let id;
     export let fieldset = false;
-
-    export let state;
+    export let validation = null;
 </script>
 
 <style>
@@ -44,8 +43,8 @@
             </fieldset>
         {/if}
 
-        {#if $state}
-            <FieldMessage {state} />
+        {#if validation}
+            <FieldMessage type={validation.type} message={validation.message} />
         {/if}
     </Stack>
 </div>

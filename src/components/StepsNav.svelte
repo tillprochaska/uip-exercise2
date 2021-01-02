@@ -1,47 +1,8 @@
 <script>
-    import {
-        descriptionStepState,
-        qualityStepState,
-        ratingStepState,
-        expertiseStepState,
-    } from '../stores.js';
-
+    import { getContext } from 'svelte';
     import StepsNavItem from './StepsNavItem.svelte';
 
-    const steps = [
-        {
-            title: 'Hello Hello',
-            state: null,
-        },
-        {
-            title: 'Description & Resubmission',
-            state: descriptionStepState,
-        },
-        {
-            title: 'Quality',
-            state: qualityStepState,
-        },
-        {
-            title: 'Rating',
-            state: ratingStepState,
-        },
-        {
-            title: 'Reviewer Expertise',
-            state: expertiseStepState,
-        },
-        {
-            title: 'Additional Notes',
-            state: null,
-        },
-        {
-            title: 'Private Comments',
-            state: null,
-        },
-        {
-            title: 'Summary',
-            state: null,
-        },
-    ];
+    const schema = getContext('schema');
 </script>
 
 <style>
@@ -57,8 +18,11 @@
 
 <nav>
     <ul>
-        {#each steps as { title, state }, index}
-            <StepsNavItem {index} {title} {state} />
+        {#each schema.steps as step, index}
+            <StepsNavItem
+                {index}
+                title={step.title}
+            />
         {/each}
     </ul>
 </nav>

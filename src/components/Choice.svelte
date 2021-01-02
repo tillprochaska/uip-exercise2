@@ -36,13 +36,13 @@
         --color-border-focus: var(--lime-600);
         --color-background: var(--lime-50);
     }
-    
+
     .strong-positive {
         --color-border: var(--green-600);
         --color-border-focus: var(--green-600);
         --color-background: var(--green-50);
     }
-    
+
 
     .choice-label {
         display: block;
@@ -52,7 +52,7 @@
     .choice-caption {
         color: var(--color-text-light);
     }
-    
+
     input {
         align-self: center;
     }

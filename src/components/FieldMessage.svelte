@@ -1,9 +1,21 @@
 <script>
     import Icon from 'svelte-awesome';
-    import { checkCircle, exclamationCircle } from 'svelte-awesome/icons';
+    import { checkCircle, exclamationCircle, infoCircle } from 'svelte-awesome/icons';
 
-    export let state;
-    $: icon = $state.type === 'valid' ? checkCircle : exclamationCircle;
+    export let type;
+    export let message;
+
+    $: icon = (() => {
+        if(type === 'valid') {
+            return checkCircle;
+        }
+
+        if(type === 'optional') {
+            return infoCircle;
+        }
+
+        return exclamationCircle;
+    })();
 </script>
 
 <style>
@@ -22,7 +34,7 @@
     }
 </style>
 
-<div class="message {$state.type}">
+<div class="message {type}">
     <Icon data={icon} />
-    {$state.message}
+    {message}
 </div>
