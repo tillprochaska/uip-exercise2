@@ -267,7 +267,7 @@
             </Step>
 
             <Step>
-                <Overview />
+                <Summary />
             </Step>
         </Steps>
     </main>

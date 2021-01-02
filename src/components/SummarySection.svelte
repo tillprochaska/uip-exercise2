@@ -4,6 +4,7 @@
     import FieldMessage from './FieldMessage.svelte';
 
     import { currentStep } from '../stores.js';
+    import formatNote from '../lib/formatNote.js';
 
     export let label;
     export let step;
@@ -54,17 +55,14 @@
             </div>
         </div>
 
-        {#if Array.isArray($value)}
+        {#if Array.isArray(value)}
             <ul>
-                {#each $value as {note, reference}}
-                    <li>
-                        {note}
-                        [{reference}]
-                    </li>
+                {#each value as note}
+                    <li>{formatNote(note)}</li>
                 {/each}
             </ul>
         {:else}
-            <p>{$value}</p>
+            <p>{value}</p>
         {/if}
     </Stack>
 </div>

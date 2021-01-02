@@ -1,5 +1,5 @@
 <script>
-    import { get } from 'svelte/store';
+    import formatNote from '../lib/formatNote.js';
 
     import {
         description,
@@ -38,60 +38,60 @@
     const fields = [
         {
             label: 'Description',
-            value: description,
+            value: $description,
             state: descriptionState,
             step: 1,
         },
         {
             label: 'Resubmission',
-            value: resubmission,
+            value: $resubmission,
             state: resubmissionState,
             step: 1
         },
         {
             label: 'Clarity Of Exposition',
-            value: expoClarity,
+            value: $expoClarity,
             state: expoClarityState,
             step: 2
         },
         {
             label: 'Quality of References',
-            value: refQuality,
+            value: $refQuality,
             state: refQualityState,
             step: 2
         },
         {
             label: 'Reproducibility',
-            value: reproducibility,
+            value: $reproducibility,
             state: reproducibilityState,
             step: 2
         },
         {
             label: 'Rating',
-            value: rating,
+            value: $rating,
             state: ratingState,
             step: 3
         },
         {
             label: 'Explanation of Rating',
-            value: explanation,
+            value: $explanation,
             state: explanationState,
             step: 3
         },
         {
             label: 'Reviewer Expertise',
-            value: expertise,
+            value: $expertise,
             state: expertiseState,
             step: 4
         },
         {
             label: 'Additional Notes',
-            value: notes,
+            value: $notes,
             step: 5,
         },
         {
             label: 'Private Comments',
-            value: comments,
+            value: $comments,
             step: 6,
         },
     ];
@@ -99,18 +99,17 @@
     function generatePlaintext() {
         return fields
             .map(({ label, value }) => {
-
                 if(Array.isArray(value)) {
-                    debugger;
                     value = value
-                        .map(item => `- ${value.note} [${value.reference}]`)
+                        .map(formatNote)
+                        .map(item => `* ${item}`)
                         .join('\n');
                 }
 
-                return { label, value }
+                return { label, value };
             })
             .map(({ label, value }) => {
-                return `${label.toUpperCase()}\n${get(value)}`
+                return `${label.toUpperCase()}\n${value}`
             })
             .join('\n\n');
     }
