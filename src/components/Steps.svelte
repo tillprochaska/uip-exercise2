@@ -45,13 +45,13 @@
 <div class="pagination hide-print">
     {#if $currentStep > 0}
         <Button style="secondary" rel="prev" on:click={() => $currentStep--}>
-            Previous
+            Back
         </Button>
     {/if}
 
     {#if $currentStep  < stepsCount - 1}
         <Button rel="next" on:click={() => $currentStep++}>
-            Next
+            Continue
         </Button>
     {/if}
 </div>
