@@ -10,8 +10,10 @@
     import { currentStep } from '../stores.js';
     import { initSchema } from '../lib/schema.js';
 
-    import schema from '../schema.json';
-    setContext('schema', initSchema(schema));
+    import siggraph from '../schemas/siggraph.yml';
+
+    const schema = initSchema(siggraph);
+    setContext('schema', schema);
 </script>
 
 <Layout>
@@ -20,7 +22,7 @@
     </div>
 
     <Steps {currentStep}>
-        {#each getContext('schema').steps as step}
+        {#each schema.steps as step}
             <Step>
                 {#if step.type === 'text'}
                     <h1 class="alpha">{step.title}</h1>
