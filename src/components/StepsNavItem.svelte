@@ -113,7 +113,8 @@
         content: none;
     }
 
-    .visited::before {
+    .visited::before,
+    .current::before {
         border-right-style: solid;
     }
 </style>
