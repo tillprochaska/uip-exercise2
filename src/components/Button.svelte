@@ -10,6 +10,10 @@
         border: none;
     }
 
+    button:hover {
+        opacity: .8;
+    }
+
     button:focus {
         outline: none;
         box-shadow: var(--input-shadow-focus)
@@ -53,6 +57,10 @@
     .danger:focus {
         background-color: var(--red-600);
         color: #fff;
+    }
+
+    .block {
+        width: 100%;
     }
 </style>
 

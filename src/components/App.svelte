@@ -1,42 +1,44 @@
 <script>
-    import { writable } from 'svelte/store';
+    import { style } from '../stores.js';
 
-    import Layout from './Layout.svelte';
     import Stack from './Stack.svelte';
-    import Steps from './Steps.svelte';
-    import Step from './Step.svelte';
-    import StepsNav from './StepsNav.svelte';
-    import Form from './Form.svelte';
-    import Summary from './Summary.svelte';
-
-    import { currentStep } from '../stores.js';
-    import { initSchema } from '../lib/schema.js';
-    import siggraph from '../schemas/siggraph.yml';
-
-    const schema = initSchema(siggraph);
+    import Button from './Button.svelte';
+    import Review from './Review.svelte';
 </script>
 
-<Layout>
-    <div slot="sidebar">
-        <StepsNav {schema} />
+<style>
+    .wrapper {
+        display: flex;
+        width: 100%;
+        min-height: 100vh;
+        padding: var(--spacing-unit);
+    }
+
+    .content {
+        max-width: 20rem;
+        margin: auto;
+        text-align: center;
+    }
+</style>
+
+{#if !$style}
+    <div class="wrapper">
+        <main class="content">
+            <Stack>
+                <header>
+                    <Stack space="small">
+                        <h1 class="beta">Thank you for taking the time to review a submission!</h1>
+                        <p>To get started, please select one of the following review templates:</p>
+                    </Stack>
+                </header>
+
+                <Stack space="small">
+                    <Button style="primary block" on:click={() => $style = 'siggraph'}>SIGGRAPH</Button>
+                    <Button style="primary block" on:click={() => $style = 'demo'}>Demo</Button>
+                </Stack>
+            </Stack>
+        </main>
     </div>
-
-    <Steps {currentStep}>
-        {#each schema.steps as step}
-            <Step>
-                {#if step.type === 'text'}
-                    <h1 class="alpha">{step.title}</h1>
-                    <p>{step.text}</p>
-                {/if}
-
-                {#if step.type === 'form'}
-                    <Form fields={step.fields} />
-                {/if}
-
-                {#if step.type === 'summary'}
-                    <Summary {schema} />
-                {/if}
-            </Step>
-        {/each}
-    </Steps>
-</Layout>
+{:else}
+    <Review />
+{/if}
