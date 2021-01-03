@@ -27,7 +27,7 @@
             <Stack>
                 <header>
                     <Stack space="small">
-                        <h1 class="beta">Thank you for taking the time to review a submission!</h1>
+                        <h1 class="beta">Thanks for taking the time to submit a review of a technical paper.</h1>
                         <p>To get started, please select one of the following review templates:</p>
                     </Stack>
                 </header>

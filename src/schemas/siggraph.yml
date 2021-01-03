@@ -2,13 +2,12 @@ id: siggraph
 steps:
     -
         type: text
-        title: Hello
+        title: Welcome!
         text: >
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-            Aenean commodo ligula eget dolor. Aenean massa.
-            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-            Nulla consequat massa quis enim.
+            Thanks for taking the time to review a technical paper submitted to the SIGGRAPH conference.
+            This website will guide you through the review process.
+            Before you start with your review, please make sure you’ve read SIGGRAPH’s <a href="https://sa2018.siggraph.org/en/submitters/technical-papers/reviewer-instructions.htm" target="_blank">Reviewer Instructions</a> and <a href="https://sa2018.siggraph.org/en/submitters/technical-papers/ethics-of-the-review-process.htm" target="_blank">Ethics of Reviewing</a>.
+
     -
         type: form
         title: Description & Resubmission
@@ -40,7 +39,7 @@ steps:
                     max: 1000
     -
         type: form
-        title: Submission Quality
+        title: Quality
         fields:
             -
                 type: textarea

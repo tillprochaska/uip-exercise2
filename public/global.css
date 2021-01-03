@@ -80,6 +80,10 @@ body {
     font-family: var(--font-family);
 }
 
+a {
+    color: var(--blue-600);
+}
+
 .alpha {
     font-weight: var(--font-weight-bold);
     font-size: 2rem;

@@ -33,7 +33,7 @@
             <Step>
                 {#if step.type === 'text'}
                     <h1 class="alpha">{step.title}</h1>
-                    <p>{step.text}</p>
+                    <p>{@html step.text}</p>
                 {/if}
 
                 {#if step.type === 'form'}
