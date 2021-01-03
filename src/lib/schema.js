@@ -1,5 +1,5 @@
 import { writable } from 'svelte-persistent-store/dist/local';
-import { derived } from 'svelte/store';
+import { derived, get } from 'svelte/store';
 
 import {
     charsValidator,
@@ -24,6 +24,32 @@ export function getFields(schema) {
             return step.fields;
         })
         .flat();
+}
+
+export function getStepState(step) {
+    if(!step.fields) {
+        return derived([], () => 'optional');
+    }
+
+    const validations = step.fields.map(field => field.validation);
+
+    return derived(validations, validations => {
+        const types = validations.map(validation => validation.type);
+
+        if(types.includes('invalid')) {
+            return 'invalid';
+        }
+
+        if(types.includes('empty')) {
+            return 'empty';
+        }
+
+        if(types.every(item => item === 'optional')) {
+            return 'optional';
+        }
+
+        return 'valid';
+    });
 }
 
 function initStep(schemaId, step) {

@@ -19,10 +19,7 @@
 <nav>
     <ul>
         {#each schema.steps as step, index}
-            <StepsNavItem
-                {index}
-                title={step.title}
-            />
+            <StepsNavItem {index} {step} />
         {/each}
     </ul>
 </nav>

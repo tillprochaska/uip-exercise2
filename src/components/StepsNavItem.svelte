@@ -1,21 +1,22 @@
 <script>
+    import { getContext } from 'svelte';
     import Icon from 'svelte-awesome';
     import { check } from 'svelte-awesome/icons';
 
     import { currentStep } from '../stores.js';
+    import { getStepState } from '../lib/schema.js';
+    const schema = getContext('schema');
 
     export let index;
-    export let title;
-    export let state;
+    export let step;
+
+    const style = getStepState(step);
 
     $: isVisited = index < $currentStep;
     $: isCurrent = index === $currentStep;
-    $: isValid = state && $state.type === 'valid' || !state && isVisited;
-
-    $: style = state ? $state.type : 'optional';
 
     $: classNames = [
-        style,
+        $style,
         isVisited ? 'visited' : '',
         isCurrent ? 'current' : '',
     ].join(' ');
@@ -122,13 +123,13 @@
 <li class={classNames}>
     <a role="button" href="#" on:click={goToStep}>
         <div class="bullet">
-            {#if isValid && !isCurrent}
+            {#if $style === 'valid' && !isCurrent || $style === 'optional' && isVisited}
                 <Icon data={check} />
             {:else}
                 {index + 1}
             {/if}
         </div>
 
-        <div class="title">{title}</div>
+        <div class="title">{step.title}</div>
     </a>
 </li>
