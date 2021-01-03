@@ -1,8 +1,7 @@
 <script>
-    import { getContext } from 'svelte';
     import StepsNavItem from './StepsNavItem.svelte';
 
-    const schema = getContext('schema');
+    export let schema;
 </script>
 
 <style>

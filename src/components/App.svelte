@@ -1,4 +1,6 @@
 <script>
+    import { writable } from 'svelte/store';
+
     import Layout from './Layout.svelte';
     import Stack from './Stack.svelte';
     import Steps from './Steps.svelte';
@@ -7,19 +9,16 @@
     import Form from './Form.svelte';
     import Summary from './Summary.svelte';
 
-    import { setContext, getContext } from 'svelte';
     import { currentStep } from '../stores.js';
     import { initSchema } from '../lib/schema.js';
-
     import siggraph from '../schemas/siggraph.yml';
 
     const schema = initSchema(siggraph);
-    setContext('schema', schema);
 </script>
 
 <Layout>
     <div slot="sidebar">
-        <StepsNav />
+        <StepsNav {schema} />
     </div>
 
     <Steps {currentStep}>
@@ -35,7 +34,7 @@
                 {/if}
 
                 {#if step.type === 'summary'}
-                    <Summary />
+                    <Summary {schema} />
                 {/if}
             </Step>
         {/each}

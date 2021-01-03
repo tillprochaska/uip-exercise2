@@ -1,5 +1,4 @@
 <script>
-    import { getContext } from 'svelte';
     import { get } from 'svelte/store';
     import { getFields } from '../lib/schema.js';
     import { fieldsAsPlaintext } from '../lib/formatters.js';
@@ -8,7 +7,8 @@
     import Button from './Button.svelte';
     import SummarySection from './SummarySection.svelte';
 
-    const schema = getContext('schema');
+    export let schema;
+
     const fields = getFields(schema);
     const plaintext = fieldsAsPlaintext(fields);
 
@@ -47,7 +47,7 @@
         <Button style="primary small" on:click={download}>Download</Button>
     </div>
 
-    {#each getContext('schema').steps as step, index}
+    {#each schema.steps as step, index}
         {#if step.type === 'form'}
             {#each step.fields as field}
                 <SummarySection

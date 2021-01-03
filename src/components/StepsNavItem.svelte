@@ -1,11 +1,9 @@
 <script>
-    import { getContext } from 'svelte';
     import Icon from 'svelte-awesome';
     import { check } from 'svelte-awesome/icons';
 
     import { currentStep } from '../stores.js';
     import { getStepState } from '../lib/schema.js';
-    const schema = getContext('schema');
 
     export let index;
     export let step;
