@@ -85,17 +85,13 @@ function initFieldStore(schemaId, field) {
 };
 
 function initFieldValidation(schemaId, field) {
-    const options = field.validation;
+    const options = field.validation || { type: 'optional' };
 
     const validators = {
         chars: charsValidator,
         choices: choicesValidator,
         optional: optionalValidator,
     };
-
-    if(!validators[options.type]) {
-        return null;
-    }
 
     const validator = validators[options.type](options);
 
