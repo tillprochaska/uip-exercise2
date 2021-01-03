@@ -173,7 +173,11 @@ steps:
                 type: textarea
                 id: comments
                 label: Private Comments
-                help: Lorem Ipsum
+                help: >
+                    You may enter private comments for the papers committee here.
+                    These comments will not be sent to the paper author(s).
+                    Please do not mention any other papers that are currently in review,
+                    or the names of people associated with these papers.
                 validation:
                     type: optional
     -
