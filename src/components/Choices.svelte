@@ -11,6 +11,7 @@
     {#each choices as choice}
         <Choice
             id={`${id}-${choice.id}`}
+            name={id}
             value={choice.value}
             label={choice.label}
             caption={choice.caption}

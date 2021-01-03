@@ -1,5 +1,6 @@
 <script>
     export let id;
+    export let name;
     export let value;
     export let label;
     export let theme = '';
@@ -96,7 +97,8 @@
 <label class="choice {theme}">
     <input
         type="radio"
-        name={id}
+        {name}
+        {id}
         {value}
         bind:group
     >
