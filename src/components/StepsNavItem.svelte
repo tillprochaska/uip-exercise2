@@ -8,16 +8,18 @@
     export let index;
     export let step;
 
-    const style = getStepState(step);
+    const state = getStepState(step);
 
     $: isVisited = index < $currentStep;
     $: isCurrent = index === $currentStep;
 
     $: classNames = [
-        $style,
+        $state,
         isVisited ? 'visited' : '',
         isCurrent ? 'current' : '',
     ].join(' ');
+
+    $: showCheck = ($state === 'valid' && !isCurrent) || ($state === 'optional' && isVisited);
 
     function goToStep() {
         $currentStep = index;
@@ -121,7 +123,7 @@
 <li class={classNames}>
     <a role="button" href="#" on:click={goToStep}>
         <div class="bullet">
-            {#if $style === 'valid' && !isCurrent || $style === 'optional' && isVisited}
+            {#if showCheck}
                 <Icon data={check} />
             {:else}
                 {index + 1}
@@ -131,3 +133,4 @@
         <div class="title">{step.title}</div>
     </a>
 </li>
+
