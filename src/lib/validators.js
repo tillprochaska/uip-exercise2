@@ -29,8 +29,13 @@ export function choicesValidator() {
 }
 
 export function optionalValidator() {
-    return value => ({
-        type: 'optional',
-        message: 'This field is optional.',
-    });
+    return value => {
+        const message = 'This field is optional.';
+
+        if(value.length > 0) {
+            return { type: 'valid', message };
+        }
+
+        return { type: 'optional', message };
+    };
 }
