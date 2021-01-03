@@ -1,5 +1,4 @@
-import { writable } from 'svelte-persistent-store/dist/local';
-import { derived, get } from 'svelte/store';
+import { writable, derived, get } from 'svelte/store';
 
 import {
     charsValidator,
@@ -33,7 +32,7 @@ export function getStepState(step) {
 
     const validations = step.fields.map(field => field.validation);
 
-    return derived(validations, validations => {
+    const store = derived(validations, validations => {
         const types = validations.map(validation => validation.type);
 
         if(types.includes('invalid')) {
@@ -50,6 +49,10 @@ export function getStepState(step) {
 
         return 'valid';
     });
+
+    debugger;
+
+    return store;
 }
 
 function initStep(schemaId, step) {
@@ -81,7 +84,7 @@ function initFieldStore(schemaId, field) {
         defaultValue = [];
     }
 
-    return writable(`${schemaId}-${field.id}`, defaultValue);
+    return writable(defaultValue);
 };
 
 function initFieldValidation(schemaId, field) {
