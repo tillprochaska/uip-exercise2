@@ -24,11 +24,6 @@
         margin-left: var(--spacing-unit);
     }
 
-    .empty {
-        color: var(--color-text-light);
-        font-style: italic;
-    }
-
     @media print {
         .section {
             break-inside: avoid;
