@@ -88,13 +88,13 @@ steps:
                         value: Definitely reject
                         label: Definitely reject
                         caption: I would protest strongly if it's accepted.
-                        theme: strong-positive
+                        theme: strong-negative
                     -
                         id: probably-reject
                         value: Probably reject
                         label: Probably reject
                         caption: I would argue against this paper.
-                        theme: positive
+                        theme: negative
                     -
                         id: possibly-accept
                         value: Possibly accept
@@ -106,13 +106,13 @@ steps:
                         value: Probably accept
                         label: Probably accept
                         caption: I would argue for this paper.
-                        theme: negative
+                        theme: positive
                     -
                         id: definitely-accept
                         value: Definitely accept
                         label: Definitely accept
-                        caption: I would protest strongly if it's accepted.
-                        theme: strong-negative
+                        caption: I would protest strongly if it isn't accepted.
+                        theme: strong-positive
                 validation:
                     type: choices
             -
