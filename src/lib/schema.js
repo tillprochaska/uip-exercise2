@@ -50,8 +50,6 @@ export function getStepState(step) {
         return 'valid';
     });
 
-    debugger;
-
     return store;
 }
 
