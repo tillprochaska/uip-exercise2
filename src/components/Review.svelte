@@ -13,10 +13,12 @@
     import { initSchema } from '../lib/schema.js';
 
     import siggraph from '../schemas/siggraph.yml';
+    import acm from '../schemas/acm.yml';
     import demo from '../schemas/demo.yml';
 
     const schemas = {
         siggraph,
+        acm,
         demo,
     };
 

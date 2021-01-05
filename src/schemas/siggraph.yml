@@ -162,8 +162,6 @@ steps:
                 type: notes
                 id: notes
                 label: Additional Notes
-                validation:
-                    type: optional
     -
         type: form
         title: Private Comments
@@ -177,8 +175,6 @@ steps:
                     These comments will not be sent to the paper author(s).
                     Please do not mention any other papers that are currently in review,
                     or the names of people associated with these papers.
-                validation:
-                    type: optional
     -
         type: summary
         title: Summary

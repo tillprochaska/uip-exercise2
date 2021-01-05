@@ -34,7 +34,7 @@
 
                 <Stack space="small">
                     <Button style="primary block" on:click={() => $style = 'siggraph'}>SIGGRAPH</Button>
-                    <Button style="primary block" on:click={() => $style = 'demo'}>Demo</Button>
+                    <Button style="primary block" on:click={() => $style = 'acm'}>ACM</Button>
                 </Stack>
             </Stack>
         </main>

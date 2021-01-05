@@ -1,0 +1,425 @@
+id: acm
+steps:
+    -
+        type: text
+        title: Welcome!
+        text: >
+            Thanks for taking the time to review a technical paper submitted to the SIGGRAPH conference.
+            This website will guide you through the review process.
+    -
+        type: form
+        title: Related Work
+        fields:
+            -
+                type: choices
+                id: related
+                label: Discussion of related work
+                help: >
+                    Discussing related work is important for several reasons.
+                    It sets the stage for the research and allows the authors to clarify their own contribution.
+                    What have other researchers done? What kind of gap is there in the previous research?
+                    How does the work presented in the paper fill that gap or improve or
+                    extend previous work and results?
+                choices:
+                    -
+                        id: all-discussed
+                        value: All relevant work discussed
+                        label: All relevant work discussed
+                        caption: >
+                            All relevant work discussed and cited, and relationship to submission clearlyand thoroughly described.
+                    -
+                        id: key-discussed
+                        value: Covers key related work
+                        label: Covers key related work
+                        caption: Its relationship to submission is described, but could be extended further
+                    -
+                        id: some-missing
+                        value: Some references missing
+                        label: Some references missing
+                        caption: Some references are missing, or their relationship to submission not clearly describe
+                    -
+                        id: important-missing
+                        value: Several important or key references missing
+                        label: Several important or key references missing
+                        caption: Several important or key references are missing, and relationship of references to submission not apparent
+                    -
+                        id: no-discussion
+                        value: No discussion of related work
+                        label: No discussion of related work
+            -
+                type: textarea
+                id: related-rationale
+                label: Rationale for your rating
+                validation:
+                    type: chars
+                    min: 200
+                    max: 500
+    -
+        type: form
+        title: Theoretical Basis
+        fields:
+            -
+                type: choices
+                id: theory
+                label: Theoretical basis for the paper
+                help: >
+                    Educational sciences, psychology, and other social sciences provide
+                    many theories, models, and conceptual frameworks, which also support
+                    computing education research. They can provide concepts and vocabulary
+                    for discussing research. They can guide research design and
+                    interpretation of empirical results and provide a lens for
+                    interpreting the results. They can provide stronger arguments in
+                    discussing the research, and they can sometimes be used to build and
+                    test hypotheses for empirical research.
+
+                    However, within computing education research, there is not always an
+                    obvious theoretical basis; for example, because the work may concern
+                    the development and use of a new tool or technology, or it may focus
+                    on collecting and analyzing data thatis highly computing-specific, and
+                    so far no obvious theoretical basis has been developed to address it.
+                    If you have suggestions for other or better theoretical framework(s),
+                    please provide this feedback for the authors.
+                choices:
+                    -
+                        id: clear-strong
+                        value: Clear and strong theoretical basis
+                        label: Clear and strong theoretical basis
+                        caption: well documented with citations and clearly applied in the research
+                    -
+                        id: basis-presented
+                        value: Theoretical basis presented
+                        label: Theoretical basis presented
+                        caption: with some citations and argument for how it is applied in the research
+                    -
+                        id: relevance-weak
+                        value: Theory presented, weak relevance
+                        label: Theory presented, weak relevance
+                        caption: There is a theory presented but its relevance to the research is weak
+                    -
+                        id: relevance-vague
+                        value: Theory presented, no clear relevance
+                        label: Theory presented, no clear relevance
+                        caption: There is a theory presented, but it is vague and has no clear relevance to the research
+                    -
+                        id: no-theory
+                        value: No obvious theory presented
+                        label: No obvious theory presented
+                        caption: even though some theories could be applied here.
+                    -
+                        id: not-applicable
+                        value: Not applicable
+                        label: Not applicable
+                        caption: >
+                            Theoretical basis is not relevant for the work presented in this paper.
+                            Please give your arguments below.
+                validation:
+                    type: choices
+            -
+                type: textarea
+                id: theory-rationale
+                label: Rationale for your rating
+                validation:
+                    type: chars
+                    min: 200
+                    max: 500
+    -
+        type: form
+        title: Methodology, Exposition, Results, and Conclusion
+        fields:
+            -
+                type: choices
+                id: methodology
+                label: Research methodology
+                help: >
+                    Research methodology provides a holistic approach to empirical
+                    research design for addressing the research questions, including
+                    arguments for selecting data collection, methods of analysis,
+                    interpretation of results, and discussion of limitations of the
+                    work.
+
+                    <strong>Note 1:</strong> The conference also accepts papers which focus on a
+                    theoretical discussion of some topic related to computing
+                    education. Such papers should clearly argue why empirical work is
+                    missing and re-interpret previously published empirical results,
+                    or should collect and analyse data to build a proof of concept of
+                    the new theoretical contribution.
+
+                    <strong>Note 2:</strong> ICER accepts studies which replicate previous empirical work.
+                    In these cases it is important to clearly justify the methodology so
+                    that comparison with previous work is possible.
+
+                    <strong>Note 3:</strong> ICER values work using quantitative, qualitative, or mixed
+                    methods, and recognizes that both formative studies and summative
+                    evaluations can make crucial contributions to the field.
+                choices:
+                    -
+                        id: suited-supported
+                        value: Well-suited and supported
+                        label: Well-suited and supported
+                        caption: >
+                            Research approach and/or methods are well-suited for the research questions/hypotheses
+                            and supported with exemplary arguments.
+                    -
+                        id: suited-applied
+                        value: Well-suited and appropriately applied
+                        label: Well-suited and appropriately applied
+                        caption: Research approach and/or methods are well-suited and appropriately applied.
+                    -
+                        id: appropriate-flawed
+                        value: Appropriate, but flawed
+                        label: Appropriate, but flawed
+                        caption: Research approach and/or methods appropriate but there are flaws in applying them.
+                    -
+                        id: inappropriate
+                        value: Inappropriate
+                        label: Inappropriate
+                        caption: Research approach and/or methods inappropriate for research objectives.
+                    -
+                        id: no-method
+                        value: Cannot be identified
+                        label: Cannot be identified
+                        caption: Research approach and/or methods cannot be identified.
+                    -
+                        id: not-applicable
+                        value: Not applicable
+                        label: Not applicable
+                        caption: The paper does not present empirical work, and explains why.
+                validation:
+                    type: choices
+            -
+                type: choices
+                id: data-methods
+                label: Data collection and analysis methods
+                help: Score the paper’s collection and analysis of data.
+                choices:
+                    -
+                        id: excellent
+                        value: Exemplary presentation and excellent argumentation
+                        label: Exemplary presentation and excellent argumentation
+                        caption: Exemplary presentation of data collection and analysis methods with excellent argumentation of the choices.
+                    -
+                        id: clear
+                        value: Methods clear and thoroughly described
+                        label: Methods clear and thoroughly described
+                        caption: Data collected and analyzed; methods clear and thoroughly described.
+                    -
+                        id: some-unclear
+                        value: Some aspects of methods unclear
+                        label: Some aspects of methods unclear
+                        caption: Data collected and analyzed, but some aspects of methods unclearly described.
+                    -
+                        id: not-described
+                        value: Methods not described
+                        label: Methods not described
+                        caption: Data collected and analyzed, but methods are not described.
+                    -
+                        id: unclear
+                        value: Unclear
+                        label: Unclear
+                        caption: Unclear what data was collected or analyzed, if any.
+                    -
+                        id: not-applicable
+                        value: Not applicable
+                        label: Not applicable
+                        caption: The paper does not present empirical work, and explains why.
+                validation:
+                    type: choices
+            -
+                type: choices
+                id: results
+                label: Discussion of results and conclusion
+                help: How well have the authors interpreted their findings?
+                choices:
+                    -
+                        id: 5
+                        value: Incisive interpretation of results and limitations
+                        label: Incisive interpretation of results and limitations
+                    -
+                        id: 4
+                        value: Good interpretation of results; limitations considered
+                        label: Good interpretation of results; limitations considered
+                    -
+                        id: 3
+                        value: Plausible interpretation of results
+                        label: Plausible interpretation of results
+                    -
+                        id: 2
+                        value: Questionable interpretation of results
+                        label: Questionable interpretation of results
+                    -
+                        id: 1
+                        value: Unjustifiable interpretation of results
+                        label: Unjustifiable interpretation of results
+                    -
+                        id: 0
+                        value: Not applicable
+                        label: Not applicable
+                        caption: The paper does not present any discussion or empirical results.
+                validation:
+                    type: choices
+            -
+                type: textarea
+                label: Rationale for ratings of methodology, research methods, results, and conclusions
+                help: Explain why you gave the ratings you did for the three fields above.
+                validation:
+                    type: chars
+                    min: 200
+                    max: 500
+    -
+        type: form
+        title: Contribution, Relevance, and Significance
+        fields:
+            -
+                type: choices
+                id: contribution
+                label: Contribution and relevance to the international computing education research field
+                help: >
+                    The paper should make it clear how it advances the international computing
+                    education research field. This typically requires comparison of results to
+                    previous related work and/or theoretical basis. Moreover, the authors should
+                    express how their work contributes to the audience beyond their local context.
+
+                    Finally, ICER is an international conference and therefore all problems,
+                    concepts, or terms which are culturally situated should be made clear in the
+                    paper; otherwise international readers might not comprehend the paper. Some
+                    examples of such local concepts are AP exam in the US, and ECTS credits in Europe.
+                choices:
+                    -
+                        id: 5
+                        value: Major and significant contribution
+                        label: Major and significant
+                        caption: A major and significant contribution to computing education research that explicitly presents results in a manner directly applicable to international research contexts.
+                    -
+                        id: 4
+                        value: Clear contribution
+                        label: Clear contribution
+                        caption: A clear contribution to computing education research.
+                    -
+                        id: 3
+                        value: Minor contribution
+                        label: Minor contribution
+                        caption: Minor contribution to computing education research or contribution is bound to a local context, perhaps with the promise of more to come.
+                    -
+                        id: 2
+                        value: No onbvious contribution
+                        label: No obvious contribution
+                        caption: No obvious contribution to computing education research, but the promise of future value.
+                    -
+                        id: 1
+                        value: Little to no contribution
+                        label: Little to no contribution
+                        caption: Contributes little or nothing to computing education research.
+                validation:
+                    type: choices
+            -
+                type: textarea
+                id: contribution-rationale
+                label: Rationale for your rating
+                validation:
+                    type: chars
+                    min: 200
+                    max: 500
+    -
+        type: form
+        title: Writing and Expression
+        fields:
+            -
+                type: choices
+                id: writing
+                label: Writing and expression
+                help: >
+                    Evaluate the writing and expression in the paper.
+                    Although not mandatory, you may add additional comments in the next step.
+                choices:
+                    -
+                        id: 5
+                        value: Well written and expressed
+                        label: Well written and expressed
+                    -
+                        id: 3
+                        value: Mostly well written
+                        label: Mostly well written
+                    -
+                        id: 1
+                        value: Not well written
+                        label: Not well written
+                        caption: with frequent grammatical, stylistic, or structural problems
+                validation:
+                    type: choices
+    -
+        type: form
+        title: Additional Comments
+        fields:
+            -
+                type: notes
+                id: notes
+                label: Suggestions, notes and other comments
+    -
+        type: form
+        title: Overall Recommendation
+        fields:
+            -
+                type: choices
+                id: recommendation
+                label: Overall recommendation
+                help: >
+                    The overall recommendation is not the average value of your observations above,
+                    but it should generally reflect them. For example, even if you like the paper
+                    very much, do not recommend Strong accept if you have pointed out several
+                    weaknesses in it. Furthermore, even weak papers have some positive aspects.
+                    Please point these out to the authors in this field.
+                choices:
+                    -
+                        id: strong-accept
+                        label: Strong accept
+                        value: Strong accept
+                        theme: strong-positive
+                    -
+                        id: accept
+                        label: Accept
+                        value: Accept
+                        theme: positive
+                    -
+                        id: weak-accept
+                        label: Weak accept
+                        value: Weak accept
+                        theme: neutral
+                    -
+                        id: weak-reject
+                        label: Weak reject
+                        value: Weak reject
+                        theme: neutral
+                    -
+                        id: reject
+                        label: Reject
+                        value: Reject
+                        theme: negative
+                    -
+                        id: strong-reject
+                        label: Strong reject
+                        value: Strong reject
+                        theme: strong-negative
+                validation:
+                    type: choices
+            -
+                type: textarea
+                id: recommendation-rationale
+                label: Rationale for your rating
+                validation:
+                    type: chars
+                    min: 200
+                    max: 500
+    -
+        type: form
+        title: Confidential Comments
+        fields:
+            -
+                type: textarea
+                id: confidential-comments
+                label: Confidential comments
+                help: >
+                    Confidential remarks for reviewers, meta-reviewers, and program co-chairs.
+                    Comments written here will not be seen by the submission’s authors.
+    -
+        type: summary
+        title: Summary
