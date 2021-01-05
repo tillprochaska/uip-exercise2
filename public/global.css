@@ -87,11 +87,13 @@ a {
 .alpha {
     font-weight: var(--font-weight-bold);
     font-size: 2rem;
+    line-height: 3rem;
 }
 
 .beta {
     font-weight: var(--font-weight-bold);
     font-size: 1.25rem;
+    line-height: 1.5rem;
 }
 
 .gamma {
